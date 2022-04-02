@@ -1,4 +1,0 @@
-1. Build two heads to the model. *
-2. Sample_from_both_models_(10% on batman)
-3. choose MAX but only backpropogate to relevant head.
-4. each timestep in replay buffer must be associated with a head for backpropogation purposes.

@@ -1,0 +1,441 @@
+[['S' 'H' 'F' 'F' 'F' 'H' 'F' 'F']
+ ['F' 'F' 'F' 'H' 'F' 'H' 'H' 'F']
+ ['H' 'F' 'F' 'H' 'F' 'F' 'F' 'H']
+ ['H' 'F' 'F' 'F' 'H' 'F' 'F' 'F']
+ ['F' 'F' 'F' 'H' 'H' 'F' 'H' 'F']
+ ['H' 'F' 'F' 'F' 'F' 'F' 'F' 'F']
+ ['F' 'F' 'F' 'F' 'F' 'F' 'F' 'F']
+ ['F' 'H' 'F' 'F' 'H' 'F' 'F' 'G']]
+Adding thread: now have 13 threads
+Starting evaluation
+UNIT TEST: sample policy line 217 mcts : [0. 1. 0. 0. 0.]
+siam score:  0.0040801037
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+Scores:  {'0.0': 0}
+Episodes: 258, frames: 1401, time: 38.51868796348572
+training steps:  7
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+258 : 0.0
+LR:  6e-06
+replay buffer size:  1652
+Time Taken :  0.0  mins 38.51851224899292  seconds
+[[[413. 174.  12.   2.   1.   1.   0.   0.]
+  [299.  80.  23.   3.   0.   0.   0.   0.]
+  [ 74.  19.   6.   4.   0.   0.   0.   0.]
+  [  1.  11.   6.   1.   0.   0.   0.   0.]
+  [  1.   5.   3.   0.   0.   0.   0.   0.]
+  [  1.   1.   2.   0.   0.   0.   0.   0.]
+  [  0.   0.   0.   0.   0.   0.   0.   0.]
+  [  0.   0.   0.   0.   0.   0.   0.   0.]]]
+deleting a thread, now have 12 threads
+Frames:  1434 train batches done:  18 episodes:  260
+siam score:  -0.07927756
+deleting a thread, now have 11 threads
+Frames:  1621 train batches done:  45 episodes:  285
+deleting a thread, now have 10 threads
+Frames:  1724 train batches done:  80 episodes:  308
+deleting a thread, now have 9 threads
+Frames:  1859 train batches done:  115 episodes:  329
+siam score:  -0.43314293
+deleting a thread, now have 8 threads
+Frames:  1974 train batches done:  149 episodes:  348
+siam score:  -0.4296949
+siam score:  -0.43346637
+siam score:  -0.47200432
+siam score:  -0.37206382
+siam score:  -0.18411057
+siam score:  -0.33961287
+siam score:  -0.39317346
+siam score:  -0.41611657
+siam score:  -0.28719005
+line 193 mcts: sample exp_bonus 0.0
+siam score:  -0.36148328
+siam score:  -0.39406997
+UNIT TEST: sample policy line 217 mcts : [0.208 0.125 0.167 0.375 0.125]
+UNIT TEST: sample policy line 217 mcts : [0.167 0.167 0.375 0.167 0.125]
+siam score:  -0.41282997
+UNIT TEST: sample policy line 217 mcts : [0.25  0.042 0.125 0.458 0.125]
+siam score:  -0.44654435
+line 193 mcts: sample exp_bonus 0.0
+siam score:  -0.48650187
+siam score:  -0.28792176
+siam score:  -0.45524037
+siam score:  -0.43943077
+siam score:  -0.44041318
+siam score:  -0.4258255
+Starting evaluation
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+Scores:  {'0.0': 0}
+Episodes: 1753, frames: 10080, time: 2444.0213098526
+training steps:  1180
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+1753 : 0.0
+LR:  0.001
+replay buffer size:  10432
+Time Taken :  40.0  mins 44.02113318443298  seconds
+[[[3190. 1162.   45.    9.    5.    2.    0.    0.]
+  [2057.  540.  129.   22.    2.    1.    0.    0.]
+  [ 498.  166.   90.   29.    0.    0.    0.    0.]
+  [  12.   79.   65.   12.    5.    0.    0.    0.]
+  [   9.   42.   45.   13.    0.    0.    0.    0.]
+  [   6.   16.   22.    9.    6.    2.    0.    0.]
+  [   3.    8.   12.    4.    1.    0.    0.    0.]
+  [   2.    2.    3.    1.    1.    0.    0.    0.]]]
+siam score:  -0.30378604
+siam score:  -0.2677921
+UNIT TEST: sample policy line 217 mcts : [0.167 0.208 0.125 0.333 0.167]
+siam score:  -0.44473603
+siam score:  -0.46122238
+UNIT TEST: sample policy line 217 mcts : [0.333 0.167 0.208 0.208 0.083]
+siam score:  -0.46286422
+siam score:  -0.5183035
+siam score:  -0.54808074
+siam score:  -0.54016244
+siam score:  -0.4586522
+line 193 mcts: sample exp_bonus 0.0
+siam score:  -0.47955087
+line 193 mcts: sample exp_bonus 0.0
+siam score:  -0.43441528
+siam score:  -0.42062458
+siam score:  -0.45517454
+siam score:  -0.4177108
+siam score:  -0.43421578
+siam score:  -0.46630087
+siam score:  -0.47730485
+siam score:  -0.4989598
+siam score:  -0.43990514
+siam score:  -0.43615794
+UNIT TEST: sample policy line 217 mcts : [0.125 0.25  0.333 0.208 0.083]
+siam score:  -0.47169995
+Starting evaluation
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+Scores:  {'0.0': 0}
+Episodes: 3540, frames: 20076, time: 5797.7366688251495
+training steps:  2355
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+3540 : 0.0
+LR:  0.001
+replay buffer size:  20581
+Time Taken :  96.0  mins 37.736490964889526  seconds
+[[[6518. 2384.   94.   28.   12.    4.    0.    0.]
+  [3980. 1065.  292.   62.    3.    1.    0.    0.]
+  [ 967.  321.  181.   53.    0.    0.    0.    0.]
+  [  31.  128.  104.   23.    7.    0.    0.    0.]
+  [  18.   60.   65.   20.    0.    0.    0.    0.]
+  [   8.   23.   27.    9.    6.    2.    0.    0.]
+  [   3.   10.   13.    4.    1.    0.    0.    0.]
+  [   2.    2.    3.    1.    1.    0.    0.    0.]]]
+siam score:  -0.5207289
+siam score:  -0.5128806
+line 193 mcts: sample exp_bonus 0.0
+siam score:  -0.5330381
+siam score:  -0.50711024
+siam score:  -0.49545592
+line 193 mcts: sample exp_bonus 0.0
+Sims:  25 1 epoch:  22563 pick best:  False frame count:  22563
+siam score:  -0.5146773
+siam score:  -0.5176973
+siam score:  -0.51931137
+siam score:  -0.50708216
+siam score:  -0.50013727
+siam score:  -0.47166964
+line 193 mcts: sample exp_bonus 0.0
+siam score:  -0.46677744
+siam score:  -0.46078232
+siam score:  -0.4561571
+siam score:  -0.45465562
+siam score:  -0.39752755
+siam score:  -0.39530933
+siam score:  -0.38534507
+UNIT TEST: sample policy line 217 mcts : [0.167 0.417 0.167 0.125 0.125]
+siam score:  -0.49412438
+siam score:  -0.49059463
+siam score:  -0.48941475
+Showing what the boot values, the n step returns and the n step returns with V look like
+tensor([[     0.0000],
+        [     0.0000],
+        [     0.0000],
+        [     0.0000],
+        [     0.0000],
+        [     0.0000],
+        [     0.0000],
+        [    -0.0000],
+        [    -0.0000],
+        [     0.0000]], dtype=torch.float64)
+0.0 0.0
+0.0 2.075809025750898e-12
+0.0 0.0
+0.0 0.0
+0.0 6.746379215440096e-11
+0.0 1.9460709636552665e-12
+0.0 0.0
+0.0 0.0
+0.0 -4.519209139369241e-12
+0.0 0.0
+siam score:  -0.49941543
+line 193 mcts: sample exp_bonus 0.0
+siam score:  -0.4930008
+siam score:  -0.35544452
+line 193 mcts: sample exp_bonus 0.0
+siam score:  -0.42023364
+siam score:  -0.4923042
+siam score:  -0.4976649
+siam score:  -0.505134
+line 193 mcts: sample exp_bonus 0.0
+siam score:  -0.5147211
+siam score:  -0.5173161
+Starting evaluation
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+Scores:  {'0.0': 0}
+Episodes: 5238, frames: 30049, time: 9170.62920999527
+training steps:  3522
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+5238 : 0.0
+LR:  0.001
+replay buffer size:  30699
+Time Taken :  152.0  mins 50.62907385826111  seconds
+[[[9918. 3514.  170.   54.   25.    6.    0.    0.]
+  [5837. 1581.  455.  100.   10.    3.    0.    0.]
+  [1440.  507.  267.   74.    2.    0.    0.    0.]
+  [  46.  203.  150.   41.   13.    0.    0.    0.]
+  [  21.   96.   89.   27.    0.    0.    0.    0.]
+  [  11.   34.   38.   10.    6.    2.    0.    0.]
+  [   4.   16.   18.    6.    1.    0.    0.    0.]
+  [   2.    3.    7.    3.    1.    0.    0.    0.]]]
+siam score:  -0.45870408
+siam score:  -0.43480265
+siam score:  -0.43471873
+siam score:  -0.50080025
+siam score:  -0.48034897
+line 193 mcts: sample exp_bonus 0.0
+siam score:  -0.45710388
+siam score:  -0.4489739
+siam score:  -0.4516642
+siam score:  -0.43677413
+siam score:  -0.42866302
+siam score:  -0.42312393
+siam score:  -0.46411663
+siam score:  -0.51242065
+siam score:  -0.47411293
+siam score:  -0.43900862
+siam score:  -0.44840813
+siam score:  -0.51604825
+siam score:  -0.52845925
+siam score:  -0.5291626
+siam score:  -0.531208
+siam score:  -0.5316546
+UNIT TEST: sample policy line 217 mcts : [0.375 0.125 0.208 0.167 0.125]
+siam score:  -0.5340051
+Starting evaluation
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+Scores:  {'0.0': 0}
+Episodes: 6927, frames: 40021, time: 12588.604274988174
+training steps:  4688
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+6927 : 0.0
+LR:  0.001
+replay buffer size:  40813
+Time Taken :  209.0  mins 48.60410118103027  seconds
+[[[13097.  4627.   253.    80.    28.     7.     0.     0.]
+  [ 7636.  2121.   623.   128.    11.     4.     0.     0.]
+  [ 1904.   730.   386.   107.     2.     0.     0.     0.]
+  [   66.   308.   223.    64.    18.     0.     0.     0.]
+  [   27.   145.   121.    40.     0.     0.     1.     0.]
+  [   16.    61.    65.    27.     8.     3.     3.     0.]
+  [    6.    26.    44.    22.     3.     1.     1.     0.]
+  [    2.     6.    27.    13.     3.     0.     0.     0.]]]
+siam score:  -0.47978252
+line 193 mcts: sample exp_bonus 0.0
+line 193 mcts: sample exp_bonus 0.0
+line 193 mcts: sample exp_bonus 0.0
+siam score:  -0.44892597
+line 193 mcts: sample exp_bonus 0.0
+UNIT TEST: sample policy line 217 mcts : [0.125 0.25  0.167 0.333 0.125]
+siam score:  -0.4553653
+line 193 mcts: sample exp_bonus 0.0
+siam score:  -0.5112084
+siam score:  -0.4826509
+siam score:  -0.50871825
+siam score:  -0.481681
+siam score:  -0.47587296
+siam score:  -0.4003626
+siam score:  -0.46003646
+siam score:  -0.46534452
+siam score:  -0.5220155
+siam score:  -0.5380413
+UNIT TEST: sample policy line 217 mcts : [0.125 0.167 0.417 0.125 0.167]
+siam score:  -0.4909551
+siam score:  -0.4905037
+siam score:  -0.36585712
+siam score:  -0.35536546
+siam score:  -0.4164607
+Showing what the boot values, the n step returns and the n step returns with V look like
+tensor([[    0.0000],
+        [    0.0000],
+        [    0.0000],
+        [    0.0000],
+        [    0.0000],
+        [    0.0000],
+        [    0.0000],
+        [    0.0000],
+        [    0.0000],
+        [    0.0000]], dtype=torch.float64)
+0.0 0.0
+0.0 1.2312142063071178e-10
+0.0 0.0
+0.0 0.0
+0.0 0.0
+0.0 0.0
+0.0 1.1079630476263932e-10
+0.0 0.0
+0.0 0.0
+0.0 0.0
+line 193 mcts: sample exp_bonus 0.0
+siam score:  -0.520115
+siam score:  -0.52116686
+Starting evaluation
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+Scores:  {'0.0': 0}
+Episodes: 8592, frames: 50110, time: 16168.640592098236
+training steps:  5865
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+8592 : 0.0
+LR:  0.001
+replay buffer size:  51062
+Time Taken :  269.0  mins 28.640419006347656  seconds
+[[[16469.  5775.   319.   107.    35.    11.     0.     0.]
+  [ 9462.  2718.   804.   162.    14.     4.     0.     0.]
+  [ 2314.   931.   504.   131.     2.     0.     0.     0.]
+  [   83.   393.   307.    83.    20.     0.     0.     0.]
+  [   44.   188.   156.    56.     1.     1.     1.     0.]
+  [   21.    80.    79.    33.    10.     6.     3.     0.]
+  [    8.    37.    53.    24.     3.     1.     1.     0.]
+  [    2.     9.    35.    14.     4.     0.     0.     0.]]]
+siam score:  -0.47938293
+siam score:  -0.4577298
+Showing what the boot values, the n step returns and the n step returns with V look like
+tensor([[    0.0000],
+        [    0.0000],
+        [    0.0000],
+        [    0.0000],
+        [    0.0000],
+        [    0.0000],
+        [    0.0000],
+        [    0.0000],
+        [    0.0000],
+        [    0.0000]], dtype=torch.float64)
+0.0 0.0
+0.0 0.0
+0.0 0.0
+0.0 0.0
+0.0 0.0
+0.0 0.0
+0.0 0.0
+0.0 5.88470225239062e-11
+0.0 0.0
+0.0 0.0
+siam score:  -0.420554
+siam score:  -0.53379875
+line 193 mcts: sample exp_bonus 0.0
+siam score:  -0.53033155
+siam score:  -0.5313636
+siam score:  -0.5080691
+siam score:  -0.5107843
+line 193 mcts: sample exp_bonus 0.0
+siam score:  -0.48072693
+line 193 mcts: sample exp_bonus 0.0
+siam score:  -0.5349367
+siam score:  -0.5361026
+siam score:  -0.5325252
+siam score:  -0.5243158
+siam score:  -0.48963013
+UNIT TEST: sample policy line 217 mcts : [0.125 0.375 0.25  0.125 0.125]
+siam score:  -0.50520444
+siam score:  -0.5307302
+siam score:  -0.52722466
+siam score:  -0.54428047
+Starting evaluation
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+Scores:  {'0.0': 0}
+Episodes: 10257, frames: 60098, time: 19504.838449954987
+training steps:  7040
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+10257 : 0.0
+LR:  0.001
+replay buffer size:  61211
+Time Taken :  325.0  mins 4.8382720947265625  seconds
+[[[19818.  6907.   385.   155.    61.    12.     0.     0.]
+  [11329.  3295.   966.   199.    20.     5.     0.     0.]
+  [ 2752.  1122.   611.   153.     2.     0.     0.     0.]
+  [  101.   450.   370.   105.    25.     0.     0.     0.]
+  [   50.   214.   176.    62.     1.     1.     1.     0.]
+  [   23.    89.    86.    38.    10.     6.     3.     0.]
+  [    8.    41.    62.    32.     4.     1.     1.     0.]
+  [    2.    11.    42.    29.     5.     0.     0.     0.]]]
+siam score:  -0.50881207
+siam score:  -0.48736495
+siam score:  -0.50970405
+siam score:  -0.52347594
+siam score:  -0.54278165
+siam score:  -0.543076
+siam score:  -0.53919846
+siam score:  -0.5298208
+siam score:  -0.5251371
+line 193 mcts: sample exp_bonus 0.0
+siam score:  -0.5280954
+siam score:  -0.45815498
+line 193 mcts: sample exp_bonus 0.0
+siam score:  -0.5017667
+siam score:  -0.5216101
+siam score:  -0.4943167
+UNIT TEST: sample policy line 217 mcts : [0.167 0.125 0.167 0.167 0.375]
+siam score:  -0.5108248
+siam score:  -0.5221197
+siam score:  -0.53460395
+siam score:  -0.5436086
+UNIT TEST: sample policy line 217 mcts : [0.167 0.167 0.167 0.375 0.125]
+siam score:  -0.4789422
+siam score:  -0.51750106
+siam score:  -0.5108371
+Starting evaluation
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+Scores:  {'0.0': 0}
+Episodes: 11949, frames: 70087, time: 22594.509908914566
+training steps:  8214
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+11949 : 0.0
+LR:  0.001
+replay buffer size:  71367
+Time Taken :  376.0  mins 34.50973320007324  seconds
+[[[23198.  8046.   457.   179.    74.    15.     0.     0.]
+  [13217.  3854.  1145.   242.    23.     7.     0.     0.]
+  [ 3204.  1287.   698.   177.     3.     3.     0.     0.]
+  [  115.   513.   416.   115.    27.     0.     0.     0.]
+  [   56.   241.   196.    71.     2.     1.     1.     0.]
+  [   23.    98.    99.    43.    13.     6.     3.     0.]
+  [    8.    45.    71.    38.     4.     1.     1.     0.]
+  [    2.    14.    46.    35.     5.     0.     0.     0.]]]

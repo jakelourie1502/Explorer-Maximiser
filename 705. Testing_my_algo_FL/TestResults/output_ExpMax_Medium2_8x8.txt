@@ -1,0 +1,363 @@
+[['S' 'H' 'F' 'F' 'F' 'F' 'H' 'F']
+ ['F' 'F' 'F' 'H' 'F' 'F' 'F' 'F']
+ ['F' 'F' 'H' 'F' 'H' 'F' 'F' 'F']
+ ['F' 'F' 'H' 'F' 'H' 'H' 'F' 'F']
+ ['F' 'F' 'F' 'F' 'F' 'F' 'F' 'F']
+ ['H' 'H' 'H' 'F' 'F' 'F' 'H' 'H']
+ ['F' 'F' 'F' 'F' 'H' 'H' 'H' 'F']
+ ['F' 'F' 'F' 'F' 'F' 'F' 'F' 'G']]
+Starting evaluation
+Adding thread: now have 13 threads
+siam score:  -0.0020292588
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+Scores:  {'0.0': 0, '0.17': 0, '0.33': 0, '0.5': 0}
+Episodes: 159, frames: 1255, time: 27.649533987045288
+training steps:  2
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+159 : 0.0
+LR:  1e-06
+replay buffer size:  1412
+Time Taken :  0.0  mins 27.649316787719727  seconds
+[[[367. 134.   3.   0.   0.   0.   0.   0.]
+  [218.  67.  13.   2.   0.   0.   0.   0.]
+  [130.  50.  11.   0.   0.   0.   0.   0.]
+  [ 45.  26.   6.   1.   1.   0.   0.   0.]
+  [ 11.   4.   1.   1.   0.   0.   0.   0.]
+  [  2.   3.   0.   0.   0.   0.   0.   0.]
+  [  0.   0.   0.   0.   0.   0.   0.   0.]
+  [  0.   0.   0.   0.   0.   0.   0.   0.]]]
+first move QE:  -0.00019780481428218383
+deleting a thread, now have 12 threads
+Frames:  1514 train batches done:  28 episodes:  182
+siam score:  -0.14917918
+deleting a thread, now have 11 threads
+Frames:  1747 train batches done:  68 episodes:  206
+deleting a thread, now have 10 threads
+Frames:  1965 train batches done:  90 episodes:  227
+deleting a thread, now have 9 threads
+Frames:  2146 train batches done:  114 episodes:  246
+deleting a thread, now have 8 threads
+Frames:  2281 train batches done:  142 episodes:  265
+first move QE:  -0.31308425777141674
+siam score:  -0.47685596
+siam score:  -0.50555295
+siam score:  -0.5340585
+siam score:  -0.5610096
+siam score:  -0.64171463
+siam score:  -0.67072874
+UNIT TEST: sample policy line 217 mcts : [0.2 0.2 0.2 0.2 0.2]
+siam score:  -0.5736496
+siam score:  -0.6154489
+line 193 mcts: sample exp_bonus 0.008020652285660616
+line 193 mcts: sample exp_bonus -0.05027019508183002
+siam score:  -0.68574744
+siam score:  -0.68342924
+siam score:  -0.67407334
+first move QE:  -0.21469843047736786
+siam score:  -0.65220416
+line 193 mcts: sample exp_bonus -0.31872183084487915
+first move QE:  -0.18214820084533265
+first move QE:  -0.16461172243349975
+siam score:  -0.62497336
+first move QE:  -0.16208688791456208
+Starting evaluation
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+Scores:  {'0.0': 0, '0.17': 0, '0.33': 0, '0.5': 0}
+Episodes: 1219, frames: 10094, time: 2966.6678881645203
+training steps:  1178
+RDN obj mus: [-0.944520328104496, -0.9597056786119937, -0.9258749363780021, -0.9034100136858352, -0.940707164340549]
+RDN obj sigmas: [0.033076627221170794, 0.031239311452022484, 0.04723224844753775, 0.06460124307936625, 0.030008987747857443]
+1219 : 0.0
+LR:  0.001
+replay buffer size:  10416
+Time Taken :  49.0  mins 26.667683124542236  seconds
+[[[2789.  943.   69.   38.   19.    6.    1.    0.]
+  [1763.  565.  153.   36.    5.    5.    0.    0.]
+  [ 895.  446.  123.    0.    1.    1.    0.    0.]
+  [ 395.  240.   59.    3.    1.    1.    0.    0.]
+  [ 163.   80.   14.    5.    1.    0.    0.    0.]
+  [  30.   19.    4.    0.    1.    0.    0.    0.]
+  [   0.    0.    0.    0.    1.    0.    0.    0.]
+  [   0.    0.    0.    0.    0.    0.    0.    0.]]]
+siam score:  -0.6864229
+first move QE:  -0.16132004671759806
+line 193 mcts: sample exp_bonus -0.015050728805363178
+siam score:  -0.6434647
+siam score:  -0.6380849
+siam score:  -0.64226604
+siam score:  -0.68778497
+siam score:  -0.68533707
+siam score:  -0.6853003
+siam score:  -0.690285
+siam score:  -0.68702215
+siam score:  -0.69067454
+first move QE:  -0.15178633011929002
+siam score:  -0.67881274
+siam score:  -0.6735578
+line 193 mcts: sample exp_bonus -0.25246842138469217
+siam score:  -0.68234706
+siam score:  -0.67032874
+siam score:  -0.6634548
+siam score:  -0.665284
+line 193 mcts: sample exp_bonus -0.3444161143489181
+first move QE:  -0.1503516704455459
+siam score:  -0.67346406
+siam score:  -0.66994894
+siam score:  -0.6653725
+UNIT TEST: sample policy line 217 mcts : [0.125 0.292 0.083 0.417 0.083]
+siam score:  -0.68096846
+siam score:  -0.68256295
+siam score:  -0.66999596
+siam score:  -0.6605351
+UNIT TEST: sample policy line 217 mcts : [0.083 0.167 0.042 0.333 0.375]
+siam score:  -0.6465775
+UNIT TEST: sample policy line 217 mcts : [0.208 0.125 0.25  0.333 0.083]
+siam score:  -0.65054303
+siam score:  -0.67312205
+first move QE:  -0.13119301760740085
+UNIT TEST: sample policy line 217 mcts : [0.25  0.292 0.083 0.083 0.292]
+Starting evaluation
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+Scores:  {'0.0': 0, '0.17': 0, '0.33': 0, '0.5': 0}
+Episodes: 2539, frames: 20119, time: 6928.85661816597
+training steps:  2348
+RDN obj mus: [-0.9272941640257836, -0.9527775757968425, -0.9436198681533337, -0.8770723914416354, -0.9279433325225231]
+RDN obj sigmas: [0.02901411962760622, 0.02771022290513605, 0.039143835647152875, 0.07994807873077792, 0.04759118023083393]
+2539 : 0.0
+LR:  0.001
+replay buffer size:  20667
+Time Taken :  115.0  mins 28.856418132781982  seconds
+[[[5548. 1967.  141.   66.   23.   10.    3.    0.]
+  [3467. 1174.  350.   86.    6.    7.    1.    0.]
+  [1595.  791.  239.    5.    2.    1.    0.    0.]
+  [ 787.  425.  105.   10.    6.    1.    0.    0.]
+  [ 323.  178.   61.   32.   15.    2.    0.    0.]
+  [  66.   40.   22.    7.    5.    0.    0.    0.]
+  [   1.    3.    3.    3.    2.    0.    0.    0.]
+  [   0.    1.    0.    0.    0.    0.    0.    0.]]]
+siam score:  -0.6641127
+siam score:  -0.66434187
+siam score:  -0.6585382
+siam score:  -0.65897286
+line 193 mcts: sample exp_bonus -0.21503123775124544
+first move QE:  -0.12338401293613012
+siam score:  -0.6750407
+siam score:  -0.6732492
+first move QE:  -0.12056392772156446
+siam score:  -0.6766779
+first move QE:  -0.12037177997965158
+UNIT TEST: sample policy line 217 mcts : [0.125 0.125 0.125 0.458 0.167]
+siam score:  -0.675609
+first move QE:  -0.12371548445092342
+first move QE:  -0.1240941652239708
+siam score:  -0.6271458
+siam score:  -0.6361522
+siam score:  -0.6823842
+siam score:  -0.6829683
+line 193 mcts: sample exp_bonus -0.05798427611589432
+siam score:  -0.6691421
+first move QE:  -0.11999234336471802
+Starting evaluation
+siam score:  -0.6828039
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+Scores:  {'0.0': 0, '0.17': 0, '0.33': 0, '0.5': 0}
+Episodes: 3788, frames: 30075, time: 10840.52178311348
+training steps:  3519
+RDN obj mus: [-0.9439974758386612, -0.9581113183617592, -0.9479145186007023, -0.8745666957029732, -0.9279433325225231]
+RDN obj sigmas: [0.03129376508307345, 0.04806755648372537, 0.04719187965969537, 0.0768635011589056, 0.04759118023083393]
+3788 : 0.0
+LR:  0.001
+replay buffer size:  30858
+Time Taken :  180.0  mins 40.52157807350159  seconds
+[[[7921. 2847.  182.   72.   27.   13.    4.    0.]
+  [5237. 1794.  523.  127.    9.    9.    1.    0.]
+  [2510. 1211.  370.    5.    3.    1.    0.    0.]
+  [1199.  668.  176.   17.    8.    1.    0.    0.]
+  [ 536.  306.  110.   57.   17.    2.    0.    0.]
+  [ 140.   69.   39.   20.   10.    1.    1.    0.]
+  [   7.    6.    4.    8.    3.    0.    0.    0.]
+  [   4.    5.    0.    5.    2.    0.    0.    0.]]]
+siam score:  -0.6817643
+first move QE:  -0.11382509717188564
+line 193 mcts: sample exp_bonus 1.5977081764991283
+siam score:  -0.6574184
+first move QE:  -0.08722986525847819
+siam score:  -0.6763417
+UNIT TEST: sample policy line 217 mcts : [0.042 0.042 0.042 0.042 0.833]
+start point for exploration sampling:  30000
+siam score:  -0.64595246
+siam score:  -0.6701385
+siam score:  -0.68152237
+siam score:  -0.68585235
+siam score:  -0.68685514
+line 193 mcts: sample exp_bonus 6.105162945272438
+siam score:  -0.6829077
+first move QE:  0.004954433135939157
+line 193 mcts: sample exp_bonus 4.024096359523535
+first move QE:  0.012800735646018796
+start point for exploration sampling:  30000
+siam score:  -0.694713
+siam score:  -0.6982647
+siam score:  -0.6929234
+start point for exploration sampling:  30000
+start point for exploration sampling:  30000
+siam score:  -0.67701095
+Starting evaluation
+siam score:  -0.6836798
+line 193 mcts: sample exp_bonus 0.9123224343357086
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+Scores:  {'0.0': 0, '0.17': 0, '0.33': 0, '0.5': 0}
+Episodes: 4498, frames: 40200, time: 13740.697669267654
+training steps:  4340
+RDN obj mus: [-0.9390102888524532, -0.9605417781352997, -0.9538816273212433, -0.9363146859288216, -0.9066232520281085]
+RDN obj sigmas: [0.03585168836352386, 0.023869170217789896, 0.029741472868984393, 0.04003990532820538, 0.06293632670721698]
+4498 : 0.0
+LR:  0.001
+replay buffer size:  41206
+Time Taken :  229.0  mins 0.69746994972229  seconds
+[[[10060.  3302.   361.   160.    60.    90.     9.     0.]
+  [ 6771.  2393.   728.   159.    13.    17.     6.     1.]
+  [ 3587.  1795.   435.    13.     7.     3.     1.     3.]
+  [ 1704.  1037.   224.    34.    17.     4.     2.     8.]
+  [  784.   552.   369.   231.    64.    30.    14.    22.]
+  [  165.    95.    59.   112.    55.    20.     7.     0.]
+  [    7.     7.    10.    30.    10.     4.     0.     0.]
+  [    4.     7.    11.    15.    14.     0.     0.     0.]]]
+UNIT TEST: sample policy line 217 mcts : [0.208 0.167 0.167 0.083 0.375]
+siam score:  -0.69369566
+siam score:  -0.69586164
+UNIT TEST: sample policy line 217 mcts : [0.375 0.125 0.125 0.125 0.25 ]
+siam score:  -0.7007143
+first move QE:  0.05149012916660486
+siam score:  -0.7027068
+siam score:  -0.7016838
+first move QE:  0.05320390612253762
+siam score:  -0.68725485
+siam score:  -0.6914035
+siam score:  -0.68911004
+first move QE:  0.06084841284687795
+start point for exploration sampling:  30000
+UNIT TEST: sample policy line 217 mcts : [0.208 0.333 0.125 0.125 0.208]
+siam score:  -0.657752
+line 193 mcts: sample exp_bonus 5.292708146982193
+siam score:  -0.68109214
+first move QE:  0.07942468863819585
+first move QE:  0.07930786737213666
+siam score:  -0.69916123
+siam score:  -0.69217926
+line 193 mcts: sample exp_bonus 0.3422747602291703
+first move QE:  0.08401664363387555
+siam score:  -0.6876375
+siam score:  -0.69155693
+siam score:  -0.6816271
+siam score:  -0.68735564
+line 193 mcts: sample exp_bonus 4.937941762081891
+line 193 mcts: sample exp_bonus 1.5126792482852938
+Starting evaluation
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+Scores:  {'0.0': 0, '0.17': 0, '0.33': 0, '0.5': 0}
+Episodes: 5413, frames: 50071, time: 17452.477600097656
+training steps:  5356
+RDN obj mus: [-0.9527586751461029, -0.9772671608448028, -0.9648362466275692, -0.9539813948273659, -0.9361328749358654]
+RDN obj sigmas: [0.024193284789613384, 0.011280832690249706, 0.02060091152347165, 0.023963030856275346, 0.046006814332702234]
+5413 : 0.0
+LR:  0.001
+replay buffer size:  51288
+Time Taken :  290.0  mins 52.4773907661438  seconds
+[[[12057.  3871.   581.   410.   405.   525.    38.    27.]
+  [ 7998.  2854.   969.   235.    54.   113.    18.    11.]
+  [ 4111.  2120.   502.    47.    13.    20.     3.     3.]
+  [ 2020.  1346.   266.   101.    23.     7.     3.     8.]
+  [  967.   791.   514.   386.   113.    54.    23.    22.]
+  [  208.   126.    79.   185.   121.    40.    16.     0.]
+  [    9.    16.    24.    56.    21.     6.     0.     0.]
+  [    6.    12.    35.    44.    25.     0.     0.     0.]]]
+siam score:  -0.69330645
+first move QE:  0.10672687743309474
+siam score:  -0.7084824
+siam score:  -0.7071045
+Showing what the boot values, the n step returns and the n step returns with V look like
+tensor([[    -0.0000],
+        [     0.0000],
+        [     0.0000],
+        [     0.0000],
+        [    -0.0000],
+        [    -0.0000],
+        [    -0.0000],
+        [    -0.0000],
+        [    -0.0000],
+        [    -0.0000]], dtype=torch.float64)
+0.0 -1.7125424135403826e-11
+0.0 2.5776636952841954e-20
+0.0 9.341140464441298e-12
+0.0 1.1027735269267945e-11
+0.0 -2.032562965850385e-11
+0.0 -1.8293066695875547e-11
+0.0 0.0
+0.0 -1.1287211357210813e-11
+0.0 -1.7384900254761968e-11
+0.0 0.0
+start point for exploration sampling:  30000
+siam score:  -0.69574237
+siam score:  -0.68800706
+siam score:  -0.7023976
+start point for exploration sampling:  30000
+start point for exploration sampling:  30000
+siam score:  -0.7006441
+siam score:  -0.7009247
+first move QE:  0.1294230049195418
+siam score:  -0.6992808
+siam score:  -0.70050764
+siam score:  -0.69961745
+first move QE:  0.13756661378765356
+start point for exploration sampling:  30000
+Sims:  25 1 epoch:  54638 pick best:  False frame count:  54638
+start point for exploration sampling:  30000
+line 193 mcts: sample exp_bonus -0.313339699242115
+siam score:  -0.69622177
+siam score:  -0.69798815
+siam score:  -0.69879156
+first move QE:  0.14140521872374714
+siam score:  -0.6936359
+UNIT TEST: sample policy line 217 mcts : [0.292 0.625 0.042 0.042 0.   ]
+siam score:  -0.7099098
+siam score:  -0.70501494
+siam score:  -0.6799537
+UNIT TEST: sample policy line 217 mcts : [0.167 0.042 0.792 0.    0.   ]
+line 193 mcts: sample exp_bonus 1.276227280315105
+siam score:  -0.69921005
+start point for exploration sampling:  30000
+Starting evaluation
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+Scores:  {'0.0': 0, '0.17': 0, '0.33': 0, '0.5': 0}
+Episodes: 6437, frames: 60151, time: 21700.82159304619
+training steps:  6699
+RDN obj mus: [-0.9445876166760921, -0.9642721847236156, -0.950368810236454, -0.9426079543709754, -0.9176788115620613]
+RDN obj sigmas: [0.031570868705397145, 0.027046923846920905, 0.03386034365844908, 0.03526515169997701, 0.054675313763939234]
+6437 : 0.0
+LR:  0.001
+replay buffer size:  61640
+Time Taken :  361.0  mins 40.82139182090759  seconds
+[[[13800.  4528.   812.   836.   645.   596.    57.    48.]
+  [ 9244.  3315.  1219.   308.   115.   297.   152.    38.]
+  [ 4751.  2397.   588.    52.    25.   289.   215.    35.]
+  [ 2366.  1594.   300.   138.    32.    21.    79.    22.]
+  [ 1215.   980.   610.   480.   131.    63.    27.    25.]
+  [  280.   150.    90.   210.   135.    50.    19.     1.]
+  [   23.    20.    35.    66.    27.     7.     0.     0.]
+  [   34.    14.    38.    45.    25.     0.     0.     0.]]]

@@ -1,5 +1,0 @@
-1. Create new object to store deque of Vs, and calculate std_dev(store for all root node children). Also to store µ and sig of expQ of root_node children. (should this be N step returns?)
-2. in episode, store post reward, Vs, v_unachieved. pass this object to MCTS
-3. Create VK function.
-4. In MCTS, if we're on the explorer, use this at each 'UCB' stage (looks like 10s per episode) to select child.
-5. normalise the nov.

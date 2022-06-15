@@ -1,0 +1,305 @@
+[['S' 'F' 'F' 'F' 'F' 'F']
+ ['F' 'F' 'H' 'F' 'H' 'F']
+ ['F' 'H' 'H' 'F' 'F' 'F']
+ ['F' 'H' 'F' 'F' 'H' 'F']
+ ['F' 'H' 'F' 'F' 'H' 'F']
+ ['F' 'H' 'F' 'F' 'H' 'G']]
+Adding thread: now have 13 threads
+Starting evaluation
+siam score:  0.0018868863
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+Scores:  {'0.0': 0, '0.17': 0, '0.33': 0, '0.5': 0}
+Episodes: 91, frames: 1516, time: 49.57432699203491
+training steps:  9
+RDN obj mus: [0.08238152248761806, 0.04704557637304899, 0, 0, 0]
+RDN obj sigmas: [0.0026874330702086214, 0.012062520828455412, 1, 1, 1]
+91 : 0.0
+LR:  8e-06
+replay buffer size:  2749
+Time Taken :  0.0  mins 49.57418179512024  seconds
+[[[406. 263. 114.  49.  18.  17.]
+  [218. 107.  49.  11.   7.   4.]
+  [ 82.  28.   0.   0.   0.   0.]
+  [ 31.   6.   0.   0.   0.   0.]
+  [ 14.   1.   0.   0.   0.   0.]
+  [  0.   0.   0.   0.   0.   0.]]]
+deleting a thread, now have 12 threads
+Frames:  1523 train batches done:  18 episodes:  92
+deleting a thread, now have 11 threads
+Frames:  1872 train batches done:  54 episodes:  117
+deleting a thread, now have 10 threads
+Frames:  2281 train batches done:  79 episodes:  140
+siam score:  -0.49007466
+deleting a thread, now have 9 threads
+Frames:  2556 train batches done:  109 episodes:  161
+siam score:  -0.486493
+deleting a thread, now have 8 threads
+Frames:  2957 train batches done:  138 episodes:  180
+first move QE:  -0.3685489045975018
+siam score:  -0.610783
+first move QE:  -0.3464854056878358
+siam score:  -0.42689845
+first move QE:  -0.21589904615849043
+siam score:  -0.83287513
+first move QE:  -0.21535863610551775
+siam score:  -0.83563113
+siam score:  -0.83578783
+siam score:  -0.826156
+first move QE:  -0.20761184796952117
+siam score:  -0.820228
+siam score:  -0.7284104
+first move QE:  -0.08607502838710253
+siam score:  -0.28569126
+siam score:  -0.51469237
+siam score:  -0.68585753
+UNIT TEST: sample policy line 217 mcts : [0.333 0.208 0.167 0.167 0.125]
+line 193 mcts: sample exp_bonus -0.31932318210601807
+siam score:  -0.6951081
+siam score:  -0.76126754
+siam score:  -0.7716621
+siam score:  -0.770832
+Starting evaluation
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+Scores:  {'0.0': 0, '0.17': 0, '0.33': 0, '0.5': 0}
+Episodes: 668, frames: 10120, time: 2339.9955072402954
+training steps:  1042
+RDN obj mus: [-0.9658594878017902, -0.9734324442505836, -0.9664442941486836, -0.9160406039820777, 0]
+RDN obj sigmas: [0.016155540072920832, 0.020882935020861172, 0.02246881689237128, 0.028024447012770282, 1]
+668 : 0.0
+LR:  0.001
+replay buffer size:  11717
+Time Taken :  38.0  mins 59.99536204338074  seconds
+[[[2573. 1595.  632.  264.   75.   43.]
+  [1634.  808.  291.   65.   45.   20.]
+  [ 622.  246.    3.   19.    8.   16.]
+  [ 230.   44.    4.   10.    7.   12.]
+  [  91.   19.    3.    1.    0.    1.]
+  [  55.   13.    3.    0.    0.    0.]]]
+siam score:  -0.7860574
+STARTED EXPV TRAINING ON FRAME NO.  10580
+siam score:  -0.79910856
+line 193 mcts: sample exp_bonus -0.1528819619552493
+siam score:  -0.7542398
+siam score:  -0.77994925
+Showing what the boot values, the n step returns and the n step returns with V look like
+tensor([[    -0.0000],
+        [    -0.0000],
+        [    -0.0000],
+        [    -0.0000],
+        [    -0.0000],
+        [    -0.0000],
+        [    -0.0000],
+        [    -0.0000],
+        [    -0.0000],
+        [    -0.0000]], dtype=torch.float64)
+0.0 -1.8289099968813265e-07
+0.0 -2.0715358490801006e-07
+0.0 -2.0925605506808024e-07
+0.0 0.0
+0.0 -1.8699911216816767e-07
+0.0 -1.9360520128958466e-07
+0.0 -2.0768115392470446e-07
+0.0 0.0
+0.0 -1.917740890972214e-07
+0.0 -2.1192935107694126e-07
+first move QE:  -0.04134790079074502
+siam score:  -0.783745
+siam score:  -0.79096985
+siam score:  -0.7748326
+siam score:  -0.7722427
+start point for exploration sampling:  10580
+line 193 mcts: sample exp_bonus 1.0695423471599816
+siam score:  -0.773456
+first move QE:  -0.03671404309781455
+start point for exploration sampling:  10580
+first move QE:  -0.039182593488525035
+siam score:  -0.7988106
+first move QE:  -0.04358817745941765
+line 193 mcts: sample exp_bonus 1.1508136118531227
+siam score:  -0.80462617
+step number:  19 total reward:  1.0  reward:  1.0 rdn_beta:  0.3333333333333333
+first move QE:  -0.01811777243192807
+siam score:  -0.7495577
+start point for exploration sampling:  10580
+UNIT TEST: sample policy line 217 mcts : [0.25  0.167 0.25  0.167 0.167]
+line 193 mcts: sample exp_bonus 0.002783113322786991
+step number:  34 total reward:  1.0  reward:  1.0 rdn_beta:  0.5
+step number:  26 total reward:  1.0  reward:  1.0 rdn_beta:  0.16666666666666666
+siam score:  -0.7354084
+step number:  24 total reward:  1.0  reward:  1.0 rdn_beta:  0.3333333333333333
+UNIT TEST: sample policy line 217 mcts : [0.167 0.25  0.167 0.167 0.25 ]
+siam score:  -0.72640973
+siam score:  -0.7234409
+siam score:  -0.71457726
+start point for exploration sampling:  10580
+start point for exploration sampling:  10580
+siam score:  -0.7028768
+line 193 mcts: sample exp_bonus 3.5156365865945816
+siam score:  -0.7203347
+siam score:  -0.7291962
+first move QE:  0.016984888076061744
+Starting evaluation
+step number:  15 total reward:  1.0  reward:  1.0 rdn_beta:  0.16666666666666666
+step number:  14 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  14 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  15 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  16 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  16 total reward:  1.0  reward:  1.0 rdn_beta:  0
+siam score:  -0.74792457
+step number:  68 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  73 total reward:  1.0  reward:  1.0 rdn_beta:  0
+Test reward:  0.28
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+Scores:  {'0.0': 0, '0.17': 2.0, '0.33': 2.0, '0.5': 1.0}
+Episodes: 1350, frames: 20265, time: 5441.55046916008
+training steps:  2046
+RDN obj mus: [-0.9683111072838306, -0.9654895097017289, -0.9650826200604439, -0.945165739351511, -0.929444007297256]
+RDN obj sigmas: [0.018784748819927737, 0.01889200925194471, 0.022438606927625747, 0.04084653902058772, 0.052860615287862685]
+1350 : 0.03333333333333333
+LR:  0.001
+replay buffer size:  22946
+Time Taken :  90.0  mins 41.55032706260681  seconds
+[[[3868. 2690. 1224.  750.  367.  339.]
+  [2605. 1227.  466.  216.  129.  154.]
+  [1212.  406.   24.  119.   48.  113.]
+  [ 729.  116.   57.  100.   38.   62.]
+  [ 546.   67.   68.   91.   18.   26.]
+  [ 811.   73.   86.   58.    7.    5.]]]
+first move QE:  0.01637034033525938
+step number:  14 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+first move QE:  0.02551430110334994
+step number:  19 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+siam score:  -0.7265951
+siam score:  -0.76731706
+siam score:  -0.82268167
+first move QE:  0.029030314245870232
+step number:  16 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  37 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+siam score:  -0.83978957
+step number:  40 total reward:  1.0  reward:  1.0 rdn_beta:  0.5
+line 193 mcts: sample exp_bonus -0.7757196280097962
+first move QE:  0.030773053593110104
+siam score:  -0.84779435
+siam score:  -0.8623745
+step number:  21 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  35 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  21 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  22 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  23 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+first move QE:  0.06617955890028453
+siam score:  -0.8442906
+step number:  19 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  26 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+start point for exploration sampling:  10580
+step number:  17 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+start point for exploration sampling:  10580
+start point for exploration sampling:  10580
+step number:  20 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+siam score:  -0.8617688
+step number:  17 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  51 total reward:  1.0  reward:  1.0 rdn_beta:  0.3333333333333333
+first move QE:  0.1003723670228608
+siam score:  -0.8627276
+siam score:  -0.8703258
+UNIT TEST: sample policy line 217 mcts : [0.167 0.208 0.375 0.042 0.208]
+step number:  14 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  16 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  15 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+siam score:  -0.8759396
+step number:  18 total reward:  1.0  reward:  1.0 rdn_beta:  0.3333333333333333
+siam score:  -0.87381876
+step number:  31 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  38 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  36 total reward:  1.0  reward:  1.0 rdn_beta:  0.16666666666666666
+step number:  26 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  13 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  21 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  18 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+siam score:  -0.87956536
+step number:  14 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  15 total reward:  1.0  reward:  1.0 rdn_beta:  0.16666666666666666
+siam score:  -0.87887347
+step number:  18 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  21 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  17 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  23 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  20 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  15 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  12 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  19 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+line 193 mcts: sample exp_bonus 3.458570187664032
+step number:  14 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  24 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+siam score:  -0.8887775
+step number:  27 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+siam score:  -0.89325464
+step number:  14 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  13 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  28 total reward:  1.0  reward:  1.0 rdn_beta:  0.3333333333333333
+step number:  22 total reward:  1.0  reward:  1.0 rdn_beta:  0.3333333333333333
+step number:  31 total reward:  1.0  reward:  1.0 rdn_beta:  0.3333333333333333
+step number:  12 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  12 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  12 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  17 total reward:  1.0  reward:  1.0 rdn_beta:  0.16666666666666666
+step number:  27 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  23 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  22 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  33 total reward:  1.0  reward:  1.0 rdn_beta:  0.3333333333333333
+step number:  19 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  38 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+UNIT TEST: sample policy line 217 mcts : [0. 0. 1. 0. 0.]
+step number:  15 total reward:  1.0  reward:  1.0 rdn_beta:  0.16666666666666666
+Starting evaluation
+step number:  19 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  13 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  12 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  12 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  12 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  12 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  12 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  13 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  13 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  13 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  13 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  13 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  13 total reward:  1.0  reward:  1.0 rdn_beta:  0
+step number:  14 total reward:  1.0  reward:  1.0 rdn_beta:  0
+Test reward:  1.0
+Q value #end_state_>_threshold:  257
+Q value #non_end_state_>threshold:  105
+Scores:  {'0.0': 47.0, '0.17': 6.0, '0.33': 8.0, '0.5': 2.0}
+Episodes: 1902, frames: 30057, time: 7966.941556215286
+training steps:  2969
+RDN obj mus: [-0.9594715079247952, -0.9619658402323723, -0.9604998887240886, -0.9574387940049172, -0.9551381290435791]
+RDN obj sigmas: [0.017535614036902937, 0.02376731984666134, 0.022600159219259026, 0.022031977067035326, 0.020939040419099216]
+1902 : 0.18333333333333332
+LR:  0.001
+replay buffer size:  33035
+Time Taken :  132.0  mins 46.94141101837158  seconds
+[[[4669. 3454. 1830. 1329.  557.  568.]
+  [3233. 1465.  563.  570.  174.  307.]
+  [1575.  490.   50.  471.  113.  303.]
+  [ 983.  158.  192.  403.   63.  230.]
+  [ 771.  108.  356.  502.   44.  132.]
+  [1575.  150.  261.  408.   35.   63.]]]
+step number:  23 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+step number:  18 total reward:  1.0  reward:  1.0 rdn_beta:  0.0

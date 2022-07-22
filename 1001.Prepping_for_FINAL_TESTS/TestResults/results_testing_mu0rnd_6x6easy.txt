@@ -1,0 +1,24 @@
+EVALUATIONS AND MAIN RESULTS
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+maxi score:  0.0001
+siam score:  -0.0025649601743826943
+Scores:  {'0.5': 0.0001}
+best rdn ma / adv:  0.5 0.5
+best rdn adv:  0.0
+Episodes: 84, frames: 1072, time: 44.13934779167175
+training steps:  6
+retraining steps:  0
+RDN obj mus: [0.012636475233903712, -0.011617503364172492, -0.008223326876759529, 0.0, 0.0]
+RDN obj sigmas: [0.004427766904446768, 0.0014845951841765863, 0.005814905530226604, 0.0, 0.0]
+84 : 0.0
+LR:  5e-06
+replay buffer size:  1522
+Time Taken :  0.0  mins 44.13910508155823  seconds
+[[[304. 179.  39.   1.   0.   0.]
+  [147.  96.  21.   2.   2.   0.]
+  [ 44.  38.  16.   9.   4.   0.]
+  [ 22.  17.   6.   2.   0.   0.]
+  [  8.   4.   7.   3.   2.   0.]
+  [  5.   5.   2.   1.   2.   0.]]]

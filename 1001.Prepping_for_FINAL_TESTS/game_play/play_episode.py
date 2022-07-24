@@ -7,7 +7,7 @@ sys.path.append(".")
 from utils import vector2d_to_tensor_for_model
 from collections import deque
 from .mcts import Node, MCTS
-from .wrappers import make_atari
+# from .wrappers import make_atari
 import cv2
 
 class Episode:

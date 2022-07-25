@@ -8,7 +8,7 @@ from utils import vector2d_to_tensor_for_model
 from collections import deque
 from .mcts import Node, MCTS
 # from .wrappers import make_atari
-import cv2
+
 
 class Episode:
     def __init__(self,model,cfg, scores,ep_counter, epoch, rdn_obj,q_tracker, test_mode=False, resampling=False, current_best_score = 0):
@@ -58,7 +58,7 @@ class Episode:
         
         if self.cfg.atari_env:
             obs   = self.env.reset()
-            obs = cv2.resize(obs, (self.cfg.image_size[0],self.cfg.image_size[1]), interpolation=cv2.INTER_AREA)
+            # obs = cv2.resize(obs, (self.cfg.image_size[0],self.cfg.image_size[1]), interpolation=cv2.INTER_AREA)
             obs = np.transpose((obs.astype(np.float32) / 255),(2,0,1))
         else:
             obs   = self.env.reset()
@@ -95,7 +95,7 @@ class Episode:
             if self.cfg.reward_clipping: reward = np.sign(reward)
             self.running_reward += reward
             if self.cfg.atari_env:
-                obs = cv2.resize(obs, (self.cfg.image_size[0],self.cfg.image_size[1]), interpolation=cv2.INTER_AREA)
+                # obs = cv2.resize(obs, (self.cfg.image_size[0],self.cfg.image_size[1]), interpolation=cv2.INTER_AREA)
                 obs = np.transpose((obs.astype(np.float32) / 255),(2,0,1))
             else:
                 obs = obs.astype(np.float32) / 255

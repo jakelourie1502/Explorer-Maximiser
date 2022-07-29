@@ -1,0 +1,1343 @@
+dirichlet_alpha:0.3
+noise:0.3
+dirichlet_alpha:0.5
+noise:0.5
+sims:{-1: 6, 6000: 25}
+c1:1
+c2:19652
+temperature_init:1
+temperature_changes:{-1: 1, 3000000.0: 0.5}
+manual_over_ride_play_limit:None
+exponent_node_n:1
+ucb_denom_k:1
+use_policy:True
+model_expV_on_dones:True
+norm_Qs_OnMaxi:True
+norm_Qs_OnAll:True
+norm_each_turn:False
+state_channels:32
+res_block_kernel_size:3
+res_block_channels:[32, 32]
+res_block_ds:[False, True, False, False, False]
+conv1:{'channels': 16, 'kernel_size': 3, 'stride': 2, 'padding': 1}
+conv2:{'channels': 32, 'kernel_size': 3, 'stride': 2, 'padding': 1}
+reward_support:[-1, 1, 51]
+conv1:{'kernel_size': 3, 'stride': 1, 'padding': 1}
+res_blocks:[32, 32]
+reward_conv_channels:16
+reward_hidden_dim:128
+terminal_conv_channels:16
+terminal_hidden_dim:64
+value_support:[-1, 1, 51]
+res_block:[32]
+value_conv_channels:32
+value_hidden_dim:128
+policy_conv_channels:32
+policy_hidden_dim:128
+expV_conv_channels:32
+expV_hidden_dim:128
+expV_support:[-10, 10, 51]
+proj_l1:256
+proj_out:128
+pred_hid:256
+replay_buffer_size:50000
+replay_buffer_size_exploration:200000
+all_time_buffer_size:200000
+batch_size:128
+play_workers:2
+min_workers:2
+max_workers:6
+lr:0.001
+lr_warmup:1000
+lr_decay:1
+lr_decay_step:100000
+optimizer:<class 'torch.optim.rmsprop.RMSprop'>
+momentum:0.9
+l2:0.0001
+rho:0.99
+k:5
+value:0.25
+dones:2.0
+siam:2
+rdn:0.5
+expV:0.5
+train_start_batch_multiple:2
+prioritised_replay:True
+resampling:False
+resampling_use_max:False
+resampling_assess_best_child:False
+rs_start:1000
+ep_to_batch_ratio:[9, 10]
+main_to_rdn_ratio:2
+train_to_RS_ratio:4
+on_policy_expV:False
+rgb_im:False
+channels:1
+timesteps_in_obs:1
+store_prev_actions:False
+env:<class 'game_play.frozen_lakeGym_Image.gridWorld'>
+same_env_each_time:True
+env_size:[4, 4]
+observable_size:[4, 4]
+game_modes:1
+env_map:[['S' 'F' 'F' 'F']
+ ['F' 'F' 'H' 'H']
+ ['F' 'F' 'F' 'F']
+ ['F' 'H' 'F' 'G']]
+max_steps:30
+actions_size:4
+optimal_score:1
+total_frames:255000
+exp_gamma:0.95
+atari_env:False
+state_size:[4, 4]
+reward_clipping:False
+memory_size:100
+image_size:[48, 48]
+running_reward_in_obs:False
+deque_length:1
+PRESET_CONFIG:5
+VK_ceiling:False
+VK:False
+use_two_heads:False
+use_siam:False
+exploration_type:none
+rdn_beta:[0, 0.0, 1]
+explorer_percentage:0.0
+follow_better_policy:0.0
+reward_exploration:False
+train_dones:False
+norm_state_vecs:False
+RND_output_vector:256
+RND_loss:cosine
+prediction_bias:True
+distance_measure:False
+update_play_model:16
+gamma:0.99
+calc_n_step_rewards_after_frames:10000
+N_steps_reward:5
+start_frame_count:0
+load_in_model:False
+log_states:True
+log_metrics:False
+exploration_logger_dims:(1, 16)
+device_train:cpu
+device_selfplay:cpu
+eval_x_frames:10000
+eval_count:20
+detach_expV_calc:True
+use_new_episode_expV:True
+start_training_expV_min:10000
+start_training_expV_max:20000
+start_training_expV_siam_override:0.8
+value_only:False
+[['S' 'F' 'F' 'F']
+ ['F' 'F' 'H' 'H']
+ ['F' 'F' 'F' 'F']
+ ['F' 'H' 'F' 'G']]
+main train batch thing paused
+add a thread
+Adding thread: now have 3 threads
+actor:  0 policy actor:  0  step number:  25 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+7 23
+in main func line 156:  8
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+8 24
+8 25
+actor:  0 policy actor:  0  step number:  19 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  13 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+18 62
+Starting evaluation
+maxi score, test score, baseline:  0.06107560975609756 0.0 0.06107560975609756
+probs:  [1.0]
+siam score:  0.0
+actor:  0 policy actor:  0  step number:  24 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+rdn probs:  [1.0]
+maxi score, test score, baseline:  0.05617476635514019 0.0 0.05617476635514019
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+probs:  [1.0]
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+probs:  [1.0]
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+probs:  [1.0]
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+probs:  [1.0]
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+probs:  [1.0]
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+probs:  [1.0]
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+probs:  [1.0]
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+probs:  [1.0]
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+probs:  [1.0]
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+probs:  [1.0]
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+probs:  [1.0]
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+probs:  [1.0]
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+probs:  [1.0]
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+probs:  [1.0]
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+probs:  [1.0]
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+deleting a thread, now have 2 threads
+Frames:  1403 train batches done:  84 episodes:  96
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+probs:  [1.0]
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+probs:  [1.0]
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+siam score:  0.0
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+probs:  [1.0]
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+maxi score, test score, baseline:  0.05138205128205128 0.0 0.05138205128205128
+probs:  [1.0]
+main train batch thing paused
+add a thread
+Adding thread: now have 3 threads
+34 87
+Printing some Q and Qe and total Qs values:  [[0.007]
+ [0.007]
+ [0.007]
+ [0.007]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.007]
+ [0.007]
+ [0.007]
+ [0.007]]
+37 111
+maxi score, test score, baseline:  0.03560295857988166 0.0 0.03560295857988166
+probs:  [1.0]
+maxi score, test score, baseline:  0.03560295857988166 0.0 0.03560295857988166
+probs:  [1.0]
+maxi score, test score, baseline:  0.03560295857988166 0.0 0.03560295857988166
+probs:  [1.0]
+maxi score, test score, baseline:  0.03560295857988166 0.0 0.03560295857988166
+probs:  [1.0]
+maxi score, test score, baseline:  0.03560295857988166 0.0 0.03560295857988166
+probs:  [1.0]
+maxi score, test score, baseline:  0.03560295857988166 0.0 0.03560295857988166
+probs:  [1.0]
+maxi score, test score, baseline:  0.03419090909090909 0.0 0.03419090909090909
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  15 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.035814285714285715 0.0 0.035814285714285715
+probs:  [1.0]
+maxi score, test score, baseline:  0.03458275862068966 0.0 0.03458275862068966
+probs:  [1.0]
+siam score:  0.0
+39 155
+siam score:  0.0
+actor:  0 policy actor:  0  step number:  19 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.03629909502262444 0.0 0.03629909502262444
+probs:  [1.0]
+42 161
+in main func line 156:  43
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.03974757709251102 0.0 0.03974757709251102
+deleting a thread, now have 2 threads
+Frames:  2787 train batches done:  181 episodes:  208
+maxi score, test score, baseline:  0.03906103896103896 0.0 0.03906103896103896
+probs:  [1.0]
+maxi score, test score, baseline:  0.03906103896103896 0.0 0.03906103896103896
+probs:  [1.0]
+maxi score, test score, baseline:  0.03906103896103896 0.0 0.03906103896103896
+probs:  [1.0]
+maxi score, test score, baseline:  0.03906103896103896 0.0 0.03906103896103896
+probs:  [1.0]
+maxi score, test score, baseline:  0.03906103896103896 0.0 0.03906103896103896
+probs:  [1.0]
+maxi score, test score, baseline:  0.03906103896103896 0.0 0.03906103896103896
+probs:  [1.0]
+maxi score, test score, baseline:  0.03906103896103896 0.0 0.03906103896103896
+maxi score, test score, baseline:  0.03906103896103896 0.0 0.03906103896103896
+probs:  [1.0]
+maxi score, test score, baseline:  0.03906103896103896 0.0 0.03906103896103896
+probs:  [1.0]
+maxi score, test score, baseline:  0.038893103448275866 0.0 0.038893103448275866
+probs:  [1.0]
+maxi score, test score, baseline:  0.03856153846153847 0.0 0.03856153846153847
+maxi score, test score, baseline:  0.0376 0.0 0.0376
+probs:  [1.0]
+maxi score, test score, baseline:  0.0372900826446281 0.0 0.0372900826446281
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  15 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.04518196721311476 0.0 0.04518196721311476
+probs:  [1.0]
+Printing some Q and Qe and total Qs values:  [[0.006]
+ [0.008]
+ [0.009]
+ [0.006]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.006]
+ [0.008]
+ [0.009]
+ [0.006]]
+maxi score, test score, baseline:  0.04357826086956522 0.0 0.04357826086956522
+probs:  [1.0]
+maxi score, test score, baseline:  0.04306875 0.0 0.04306875
+probs:  [1.0]
+45 191
+maxi score, test score, baseline:  0.042735658914728684 0.0 0.042735658914728684
+probs:  [1.0]
+maxi score, test score, baseline:  0.04257104247104247 0.0 0.04257104247104247
+probs:  [1.0]
+maxi score, test score, baseline:  0.04160943396226415 0.0 0.04160943396226415
+probs:  [1.0]
+maxi score, test score, baseline:  0.041298501872659175 0.0 0.041298501872659175
+probs:  [1.0]
+maxi score, test score, baseline:  0.04054117647058824 0.0 0.04054117647058824
+probs:  [1.0]
+maxi score, test score, baseline:  0.03924590747330961 0.0 0.03924590747330961
+maxi score, test score, baseline:  0.03883239436619718 0.0 0.03883239436619718
+probs:  [1.0]
+maxi score, test score, baseline:  0.03777123287671233 0.0 0.03777123287671233
+probs:  [1.0]
+maxi score, test score, baseline:  0.03751496598639456 0.0 0.03751496598639456
+56 221
+siam score:  0.0
+maxi score, test score, baseline:  0.03640363036303631 0.0 0.03640363036303631
+probs:  [1.0]
+siam score:  0.0
+maxi score, test score, baseline:  0.035814285714285715 0.0 0.035814285714285715
+probs:  [1.0]
+maxi score, test score, baseline:  0.035814285714285715 0.0 0.035814285714285715
+probs:  [1.0]
+maxi score, test score, baseline:  0.035814285714285715 0.0 0.035814285714285715
+probs:  [1.0]
+maxi score, test score, baseline:  0.035814285714285715 0.0 0.035814285714285715
+siam score:  0.0
+maxi score, test score, baseline:  0.035814285714285715 0.0 0.035814285714285715
+maxi score, test score, baseline:  0.035814285714285715 0.0 0.035814285714285715
+maxi score, test score, baseline:  0.035814285714285715 0.0 0.035814285714285715
+probs:  [1.0]
+maxi score, test score, baseline:  0.035814285714285715 0.0 0.035814285714285715
+maxi score, test score, baseline:  0.035698705501618126 0.0 0.035698705501618126
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.03868520900321544 0.0 0.03868520900321544
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.041239240506329114 0.0 0.041239240506329114
+probs:  [1.0]
+63 244
+siam score:  0.0
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.04189104477611941 0.0 0.04189104477611941
+maxi score, test score, baseline:  0.041276470588235296 0.0 0.041276470588235296
+probs:  [1.0]
+maxi score, test score, baseline:  0.040916326530612245 0.0 0.040916326530612245
+probs:  [1.0]
+64 261
+maxi score, test score, baseline:  0.040214613180515765 0.0 0.040214613180515765
+probs:  [1.0]
+maxi score, test score, baseline:  0.039315686274509806 0.0 0.039315686274509806
+probs:  [1.0]
+maxi score, test score, baseline:  0.03898888888888889 0.0 0.03898888888888889
+maxi score, test score, baseline:  0.03898888888888889 0.0 0.03898888888888889
+probs:  [1.0]
+maxi score, test score, baseline:  0.03866749311294766 0.0 0.03866749311294766
+maxi score, test score, baseline:  0.037533155080213904 0.0 0.037533155080213904
+probs:  [1.0]
+maxi score, test score, baseline:  0.035905626598465475 0.0 0.035905626598465475
+maxi score, test score, baseline:  0.03563299492385787 0.0 0.03563299492385787
+actor:  0 policy actor:  0  step number:  23 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+siam score:  0.0
+maxi score, test score, baseline:  0.03797878787878788 0.0 0.03797878787878788
+probs:  [1.0]
+maxi score, test score, baseline:  0.03633188405797102 0.0 0.03633188405797102
+probs:  [1.0]
+maxi score, test score, baseline:  0.03615769230769231 0.0 0.03615769230769231
+probs:  [1.0]
+maxi score, test score, baseline:  0.036071223021582735 0.0 0.036071223021582735
+probs:  [1.0]
+maxi score, test score, baseline:  0.035814285714285715 0.0 0.035814285714285715
+probs:  [1.0]
+maxi score, test score, baseline:  0.035560992907801424 0.0 0.035560992907801424
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  15 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+siam score:  0.0
+maxi score, test score, baseline:  0.03765868544600939 0.0 0.03765868544600939
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  25 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.039360969976905316 0.0 0.039360969976905316
+probs:  [1.0]
+maxi score, test score, baseline:  0.0390908256880734 0.0 0.0390908256880734
+probs:  [1.0]
+Printing some Q and Qe and total Qs values:  [[0.003]
+ [0.005]
+ [0.003]
+ [0.003]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.003]
+ [0.005]
+ [0.003]
+ [0.003]]
+maxi score, test score, baseline:  0.03830224719101124 0.0 0.03830224719101124
+probs:  [1.0]
+86 341
+maxi score, test score, baseline:  0.03787777777777778 0.0 0.03787777777777778
+probs:  [1.0]
+maxi score, test score, baseline:  0.03787777777777778 0.0 0.03787777777777778
+maxi score, test score, baseline:  0.03787777777777778 0.0 0.03787777777777778
+maxi score, test score, baseline:  0.03787777777777778 0.0 0.03787777777777778
+probs:  [1.0]
+maxi score, test score, baseline:  0.03787777777777778 0.0 0.03787777777777778
+probs:  [1.0]
+maxi score, test score, baseline:  0.03787777777777778 0.0 0.03787777777777778
+probs:  [1.0]
+maxi score, test score, baseline:  0.03787777777777778 0.0 0.03787777777777778
+probs:  [1.0]
+maxi score, test score, baseline:  0.03787777777777778 0.0 0.03787777777777778
+maxi score, test score, baseline:  0.03787777777777778 0.0 0.03787777777777778
+probs:  [1.0]
+maxi score, test score, baseline:  0.037380701754385966 0.0 0.037380701754385966
+probs:  [1.0]
+Printing some Q and Qe and total Qs values:  [[0.007]
+ [0.006]
+ [0.043]
+ [0.004]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.007]
+ [0.006]
+ [0.043]
+ [0.004]]
+actor:  0 policy actor:  0  step number:  22 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.03880967741935484 0.0 0.03880967741935484
+probs:  [1.0]
+maxi score, test score, baseline:  0.03831656050955414 0.0 0.03831656050955414
+maxi score, test score, baseline:  0.03831656050955414 0.0 0.03831656050955414
+probs:  [1.0]
+maxi score, test score, baseline:  0.03815496828752643 0.0 0.03815496828752643
+maxi score, test score, baseline:  0.037835849056603775 0.0 0.037835849056603775
+probs:  [1.0]
+maxi score, test score, baseline:  0.03752203742203743 0.0 0.03752203742203743
+probs:  [1.0]
+maxi score, test score, baseline:  0.037444398340248965 0.0 0.037444398340248965
+probs:  [1.0]
+Printing some Q and Qe and total Qs values:  [[0.027]
+ [0.2  ]
+ [0.052]
+ [0.047]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.027]
+ [0.2  ]
+ [0.052]
+ [0.047]]
+actor:  0 policy actor:  0  step number:  22 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.039275257731958765 0.0 0.039275257731958765
+probs:  [1.0]
+maxi score, test score, baseline:  0.039275257731958765 0.0 0.039275257731958765
+main train batch thing paused
+add a thread
+Adding thread: now have 3 threads
+Printing some Q and Qe and total Qs values:  [[0.037]
+ [0.105]
+ [0.061]
+ [0.063]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.037]
+ [0.105]
+ [0.061]
+ [0.063]]
+maxi score, test score, baseline:  0.038252610441767074 0.0 0.038252610441767074
+probs:  [1.0]
+maxi score, test score, baseline:  0.0381 0.0 0.0381
+probs:  [1.0]
+siam score:  0.0
+maxi score, test score, baseline:  0.0381 0.0 0.0381
+probs:  [1.0]
+maxi score, test score, baseline:  0.0381 0.0 0.0381
+maxi score, test score, baseline:  0.0381 0.0 0.0381
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  26 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.040100000000000004 0.0 0.040100000000000004
+probs:  [1.0]
+maxi score, test score, baseline:  0.040100000000000004 0.0 0.040100000000000004
+probs:  [1.0]
+maxi score, test score, baseline:  0.040100000000000004 0.0 0.040100000000000004
+probs:  [1.0]
+maxi score, test score, baseline:  0.040100000000000004 0.0 0.040100000000000004
+probs:  [1.0]
+maxi score, test score, baseline:  0.040100000000000004 0.0 0.040100000000000004
+probs:  [1.0]
+main train batch thing paused
+add a thread
+Adding thread: now have 4 threads
+99 401
+UNIT TEST: sample policy line 217 mcts : [0.167 0.5   0.167 0.167]
+maxi score, test score, baseline:  0.0361 0.0 0.0361
+probs:  [1.0]
+maxi score, test score, baseline:  0.0361 0.0 0.0361
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  14 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0381 0.0 0.0381
+maxi score, test score, baseline:  0.0381 0.0 0.0381
+probs:  [1.0]
+maxi score, test score, baseline:  0.0381 0.0 0.0381
+maxi score, test score, baseline:  0.0381 0.0 0.0381
+probs:  [1.0]
+maxi score, test score, baseline:  0.0381 0.0 0.0381
+probs:  [1.0]
+maxi score, test score, baseline:  0.0381 0.0 0.0381
+probs:  [1.0]
+maxi score, test score, baseline:  0.0381 0.0 0.0381
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.040100000000000004 0.0 0.040100000000000004
+maxi score, test score, baseline:  0.040100000000000004 0.0 0.040100000000000004
+probs:  [1.0]
+maxi score, test score, baseline:  0.0361 0.0 0.0361
+probs:  [1.0]
+maxi score, test score, baseline:  0.0361 0.0 0.0361
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+siam score:  0.0
+actor:  0 policy actor:  0  step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0381 0.0 0.0381
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.040100000000000004 0.0 0.040100000000000004
+maxi score, test score, baseline:  0.040100000000000004 0.0 0.040100000000000004
+maxi score, test score, baseline:  0.040100000000000004 0.0 0.040100000000000004
+probs:  [1.0]
+Printing some Q and Qe and total Qs values:  [[0.012]
+ [0.021]
+ [0.019]
+ [0.006]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.012]
+ [0.021]
+ [0.019]
+ [0.006]]
+Training Flag: False
+Self play flag: True
+resampling flag: False
+add more workers flag:  True
+expV_train_flag:  False
+expV_train_start_flag:  255000
+main train batch thing paused
+add a thread
+Adding thread: now have 5 threads
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.042100000000000005 0.0 0.042100000000000005
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  14 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+Printing some Q and Qe and total Qs values:  [[0.046]
+ [0.092]
+ [0.113]
+ [0.149]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.046]
+ [0.092]
+ [0.113]
+ [0.149]]
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+108 462
+maxi score, test score, baseline:  0.0461 0.0 0.0461
+probs:  [1.0]
+maxi score, test score, baseline:  0.0461 0.0 0.0461
+probs:  [1.0]
+maxi score, test score, baseline:  0.0461 0.0 0.0461
+probs:  [1.0]
+maxi score, test score, baseline:  0.0461 0.0 0.0461
+probs:  [1.0]
+Printing some Q and Qe and total Qs values:  [[0.056]
+ [0.15 ]
+ [0.121]
+ [0.028]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.056]
+ [0.15 ]
+ [0.121]
+ [0.028]]
+maxi score, test score, baseline:  0.0441 0.0 0.0441
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  15 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  16 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.050100000000000006 0.0 0.050100000000000006
+siam score:  0.0
+maxi score, test score, baseline:  0.050100000000000006 0.0 0.050100000000000006
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  16 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  24 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0621 0.0 0.0621
+probs:  [1.0]
+maxi score, test score, baseline:  0.0621 0.0 0.0621
+probs:  [1.0]
+Printing some Q and Qe and total Qs values:  [[0.028]
+ [0.028]
+ [0.028]
+ [0.028]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.028]
+ [0.028]
+ [0.028]
+ [0.028]]
+maxi score, test score, baseline:  0.0621 0.0 0.0621
+probs:  [1.0]
+Printing some Q and Qe and total Qs values:  [[0.586]
+ [1.02 ]
+ [0.693]
+ [0.38 ]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.586]
+ [1.02 ]
+ [0.693]
+ [0.38 ]]
+actor:  0 policy actor:  0  step number:  16 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+111 507
+maxi score, test score, baseline:  0.0641 0.0 0.0641
+probs:  [1.0]
+maxi score, test score, baseline:  0.0641 0.0 0.0641
+maxi score, test score, baseline:  0.0641 0.0 0.0641
+probs:  [1.0]
+Training Flag: True
+Self play flag: True
+resampling flag: False
+add more workers flag:  False
+expV_train_flag:  False
+expV_train_start_flag:  255000
+Printing some Q and Qe and total Qs values:  [[0.002]
+ [0.002]
+ [0.002]
+ [0.002]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.002]
+ [0.002]
+ [0.002]
+ [0.002]]
+maxi score, test score, baseline:  0.0641 0.0 0.0641
+probs:  [1.0]
+maxi score, test score, baseline:  0.0641 0.0 0.0641
+probs:  [1.0]
+maxi score, test score, baseline:  0.0641 0.0 0.0641
+probs:  [1.0]
+maxi score, test score, baseline:  0.0641 0.0 0.0641
+probs:  [1.0]
+maxi score, test score, baseline:  0.0641 0.0 0.0641
+probs:  [1.0]
+114 531
+maxi score, test score, baseline:  0.0641 0.0 0.0641
+actor:  0 policy actor:  0  step number:  19 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0661 0.0 0.0661
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+115 538
+actor:  0 policy actor:  0  step number:  13 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.07010000000000001 0.0 0.07010000000000001
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0721 0.0 0.0721
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+siam score:  0.0
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0761 0.0 0.0761
+maxi score, test score, baseline:  0.0761 0.0 0.0761
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0801 0.0 0.0801
+probs:  [1.0]
+maxi score, test score, baseline:  0.0801 0.0 0.0801
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0861 0.0 0.0861
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0881 0.0 0.0881
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0901 0.0 0.0901
+maxi score, test score, baseline:  0.0901 0.0 0.0901
+probs:  [1.0]
+maxi score, test score, baseline:  0.0901 0.0 0.0901
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+Printing some Q and Qe and total Qs values:  [[0.16]
+ [0.16]
+ [0.16]
+ [0.16]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.16]
+ [0.16]
+ [0.16]
+ [0.16]]
+main train batch thing paused
+add a thread
+Adding thread: now have 6 threads
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+116 587
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+Printing some Q and Qe and total Qs values:  [[0.7  ]
+ [0.404]
+ [0.403]
+ [0.7  ]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.7  ]
+ [0.404]
+ [0.403]
+ [0.7  ]]
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0921 0.0 0.0921
+probs:  [1.0]
+maxi score, test score, baseline:  0.0921 0.0 0.0921
+maxi score, test score, baseline:  0.0921 0.0 0.0921
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0941 0.0 0.0941
+probs:  [1.0]
+maxi score, test score, baseline:  0.0941 0.0 0.0941
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0961 0.0 0.0961
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  16 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+Printing some Q and Qe and total Qs values:  [[0.08 ]
+ [0.329]
+ [0.991]
+ [0.305]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.08 ]
+ [0.329]
+ [0.991]
+ [0.305]]
+maxi score, test score, baseline:  0.10010000000000001 0.0 0.10010000000000001
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.1021 0.0 0.1021
+probs:  [1.0]
+maxi score, test score, baseline:  0.1021 0.0 0.1021
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+siam score:  0.0
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.1061 0.0 0.1061
+probs:  [1.0]
+maxi score, test score, baseline:  0.1061 0.0 0.1061
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  12 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+siam score:  0.0
+Printing some Q and Qe and total Qs values:  [[0.057]
+ [0.429]
+ [0.694]
+ [0.182]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.057]
+ [0.429]
+ [0.694]
+ [0.182]]
+maxi score, test score, baseline:  0.1081 0.0 0.1081
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.11410000000000001 0.0 0.11410000000000001
+maxi score, test score, baseline:  0.11410000000000001 0.0 0.11410000000000001
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+siam score:  0.0
+UNIT TEST: sample policy line 217 mcts : [0.333 0.167 0.25  0.25 ]
+actor:  0 policy actor:  0  step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.1221 0.0 0.1221
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  12 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  12 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.1341 0.0 0.1341
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.14609999999999998 0.0 0.14609999999999998
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.14809999999999998 0.0 0.14809999999999998
+122 700
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+Printing some Q and Qe and total Qs values:  [[0.063]
+ [0.003]
+ [0.239]
+ [0.063]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.063]
+ [0.003]
+ [0.239]
+ [0.063]]
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+Printing some Q and Qe and total Qs values:  [[0.027]
+ [0.831]
+ [0.3  ]
+ [0.083]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.027]
+ [0.831]
+ [0.3  ]
+ [0.083]]
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.1541 0.0 0.1541
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+Starting evaluation
+siam score:  0.0
+maxi score, test score, baseline:  0.1561 0.0 0.1561
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  12 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.1621 0.0 0.1621
+probs:  [1.0]
+maxi score, test score, baseline:  0.1621 0.0 0.1621
+maxi score, test score, baseline:  0.1621 0.0 0.1621
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.1641 0.0 0.1641
+probs:  [1.0]
+rdn probs:  [1.0]
+maxi score, test score, baseline:  0.1641 0.05 0.1641
+probs:  [1.0]
+maxi score, test score, baseline:  0.1641 0.05 0.1641
+probs:  [1.0]
+122 734
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.1641 0.05 0.1641
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  19 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.1661 0.05 0.1661
+probs:  [1.0]
+maxi score, test score, baseline:  0.1661 0.05 0.1661
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+Printing some Q and Qe and total Qs values:  [[0.029]
+ [0.029]
+ [0.029]
+ [0.029]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.029]
+ [0.029]
+ [0.029]
+ [0.029]]
+maxi score, test score, baseline:  0.1681 0.05 0.1681
+probs:  [1.0]
+Printing some Q and Qe and total Qs values:  [[0.395]
+ [0.395]
+ [0.395]
+ [0.395]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.395]
+ [0.395]
+ [0.395]
+ [0.395]]
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  19 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.1701 0.05 0.1701
+maxi score, test score, baseline:  0.1701 0.05 0.1701
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  15 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  14 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.17609999999999998 0.05 0.17609999999999998
+maxi score, test score, baseline:  0.17609999999999998 0.05 0.17609999999999998
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  18 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.17609999999999998 0.05 0.17609999999999998
+probs:  [1.0]
+maxi score, test score, baseline:  0.17609999999999998 0.05 0.17609999999999998
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.17809999999999998 0.05 0.17809999999999998
+probs:  [1.0]
+maxi score, test score, baseline:  0.17809999999999998 0.05 0.17809999999999998
+probs:  [1.0]
+UNIT TEST: sample policy line 217 mcts : [0.042 0.042 0.875 0.042]
+actor:  0 policy actor:  0  step number:  13 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.18009999999999998 0.05 0.18009999999999998
+probs:  [1.0]
+line 256 mcts: sample exp_bonus 0.0
+actor:  0 policy actor:  0  step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.18009999999999998 0.05 0.18009999999999998
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.18209999999999998 0.05 0.18209999999999998
+probs:  [1.0]
+Printing some Q and Qe and total Qs values:  [[0.149]
+ [0.199]
+ [0.208]
+ [0.602]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.149]
+ [0.199]
+ [0.208]
+ [0.602]]
+siam score:  0.0
+maxi score, test score, baseline:  0.18209999999999998 0.05 0.18209999999999998
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.18409999999999999 0.05 0.18409999999999999
+probs:  [1.0]
+Printing some Q and Qe and total Qs values:  [[0.088]
+ [0.088]
+ [0.088]
+ [0.088]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.088]
+ [0.088]
+ [0.088]
+ [0.088]]
+maxi score, test score, baseline:  0.18209999999999998 0.05 0.18209999999999998
+Printing some Q and Qe and total Qs values:  [[0.375]
+ [1.009]
+ [0.667]
+ [0.168]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.375]
+ [1.009]
+ [0.667]
+ [0.168]]
+124 882
+maxi score, test score, baseline:  0.18009999999999998 0.05 0.18009999999999998
+actor:  0 policy actor:  0  step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.17609999999999998 0.05 0.17609999999999998
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  13 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+124 896
+actor:  0 policy actor:  0  step number:  12 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.18209999999999998 0.05 0.18209999999999998
+actor:  0 policy actor:  0  step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.18409999999999999 0.05 0.18409999999999999
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+Printing some Q and Qe and total Qs values:  [[0.393]
+ [0.436]
+ [0.447]
+ [0.393]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.393]
+ [0.436]
+ [0.447]
+ [0.393]]
+maxi score, test score, baseline:  0.1861 0.05 0.1861
+probs:  [1.0]
+Printing some Q and Qe and total Qs values:  [[0.168]
+ [0.2  ]
+ [0.691]
+ [0.032]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.168]
+ [0.2  ]
+ [0.691]
+ [0.032]]
+siam score:  0.0
+maxi score, test score, baseline:  0.18209999999999998 0.05 0.18209999999999998
+probs:  [1.0]
+maxi score, test score, baseline:  0.18209999999999998 0.05 0.18209999999999998
+maxi score, test score, baseline:  0.18209999999999998 0.05 0.18209999999999998
+probs:  [1.0]
+maxi score, test score, baseline:  0.18009999999999998 0.05 0.18009999999999998
+probs:  [1.0]
+maxi score, test score, baseline:  0.18009999999999998 0.05 0.18009999999999998
+maxi score, test score, baseline:  0.1621 0.05 0.1621
+probs:  [1.0]
+Printing some Q and Qe and total Qs values:  [[0.14 ]
+ [0.813]
+ [0.234]
+ [0.14 ]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.14 ]
+ [0.813]
+ [0.234]
+ [0.14 ]]
+126 1001
+siam score:  0.0
+Printing some Q and Qe and total Qs values:  [[0.391]
+ [0.491]
+ [0.555]
+ [0.391]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.391]
+ [0.491]
+ [0.555]
+ [0.391]]
+maxi score, test score, baseline:  0.1581 0.05 0.1581
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.15209999999999999 0.05 0.15209999999999999
+probs:  [1.0]
+maxi score, test score, baseline:  0.14609999999999998 0.05 0.14609999999999998
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+UNIT TEST: sample policy line 217 mcts : [0.042 0.042 0.75  0.167]
+maxi score, test score, baseline:  0.1321 0.05 0.1321
+probs:  [1.0]
+maxi score, test score, baseline:  0.1281 0.05 0.1281
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.1301 0.05 0.1301
+probs:  [1.0]
+127 1080
+maxi score, test score, baseline:  0.1281 0.05 0.1281
+probs:  [1.0]
+maxi score, test score, baseline:  0.1281 0.05 0.1281
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+127 1091
+maxi score, test score, baseline:  0.1221 0.05 0.1221
+probs:  [1.0]
+maxi score, test score, baseline:  0.1221 0.05 0.1221
+probs:  [1.0]
+127 1096
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.1201 0.05 0.1201
+probs:  [1.0]
+maxi score, test score, baseline:  0.1201 0.05 0.1201
+actor:  0 policy actor:  0  step number:  12 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+siam score:  0.0
+actor:  0 policy actor:  0  step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.1241 0.05 0.1241
+probs:  [1.0]
+maxi score, test score, baseline:  0.1221 0.05 0.1221
+probs:  [1.0]
+maxi score, test score, baseline:  0.1201 0.05 0.1201
+probs:  [1.0]
+maxi score, test score, baseline:  0.11610000000000001 0.05 0.11610000000000001
+probs:  [1.0]
+maxi score, test score, baseline:  0.11610000000000001 0.05 0.11610000000000001
+probs:  [1.0]
+maxi score, test score, baseline:  0.11610000000000001 0.05 0.11610000000000001
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  15 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.1121 0.05 0.1121
+probs:  [1.0]
+maxi score, test score, baseline:  0.1121 0.05 0.1121
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.1081 0.05 0.1081
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.1061 0.05 0.1061
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0901 0.05 0.0901
+maxi score, test score, baseline:  0.0901 0.05 0.0901
+probs:  [1.0]
+127 1166
+Printing some Q and Qe and total Qs values:  [[0.099]
+ [0.139]
+ [0.441]
+ [0.032]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.099]
+ [0.139]
+ [0.441]
+ [0.032]]
+maxi score, test score, baseline:  0.0861 0.05 0.0861
+probs:  [1.0]
+maxi score, test score, baseline:  0.0861 0.05 0.0861
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  12 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0881 0.05 0.0881
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  11 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  13 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0821 0.05 0.0821
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+Printing some Q and Qe and total Qs values:  [[0.286]
+ [0.288]
+ [0.276]
+ [0.286]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.286]
+ [0.288]
+ [0.276]
+ [0.286]]
+Printing some Q and Qe and total Qs values:  [[0.412]
+ [0.853]
+ [0.702]
+ [0.412]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.412]
+ [0.853]
+ [0.702]
+ [0.412]]
+maxi score, test score, baseline:  0.08410000000000001 0.05 0.08410000000000001
+Printing some Q and Qe and total Qs values:  [[0.036]
+ [0.705]
+ [0.281]
+ [0.036]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.036]
+ [0.705]
+ [0.281]
+ [0.036]]
+maxi score, test score, baseline:  0.0821 0.05 0.0821
+probs:  [1.0]
+Printing some Q and Qe and total Qs values:  [[0.097]
+ [0.097]
+ [0.097]
+ [0.097]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.097]
+ [0.097]
+ [0.097]
+ [0.097]]
+maxi score, test score, baseline:  0.0801 0.05 0.0801
+probs:  [1.0]
+maxi score, test score, baseline:  0.0801 0.05 0.0801
+probs:  [1.0]
+maxi score, test score, baseline:  0.0781 0.05 0.0781
+maxi score, test score, baseline:  0.0761 0.05 0.0761
+probs:  [1.0]
+maxi score, test score, baseline:  0.0761 0.05 0.0761
+probs:  [1.0]
+139 1227
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+Printing some Q and Qe and total Qs values:  [[0.075]
+ [0.075]
+ [0.075]
+ [0.075]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.075]
+ [0.075]
+ [0.075]
+ [0.075]]
+Printing some Q and Qe and total Qs values:  [[0.008]
+ [0.101]
+ [0.454]
+ [0.014]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.008]
+ [0.101]
+ [0.454]
+ [0.014]]
+maxi score, test score, baseline:  0.0741 0.05 0.0741
+probs:  [1.0]
+maxi score, test score, baseline:  0.0741 0.05 0.0741
+probs:  [1.0]
+in main func line 156:  140
+Printing some Q and Qe and total Qs values:  [[0.445]
+ [0.492]
+ [0.719]
+ [0.445]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.445]
+ [0.492]
+ [0.719]
+ [0.445]]
+maxi score, test score, baseline:  0.0721 0.05 0.0721
+probs:  [1.0]
+maxi score, test score, baseline:  0.0721 0.05 0.0721
+maxi score, test score, baseline:  0.0721 0.05 0.0721
+probs:  [1.0]
+maxi score, test score, baseline:  0.0721 0.05 0.0721
+maxi score, test score, baseline:  0.0721 0.05 0.0721
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+siam score:  0.0
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0721 0.05 0.0721
+probs:  [1.0]
+siam score:  0.0
+maxi score, test score, baseline:  0.06810000000000001 0.05 0.06810000000000001
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  12 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+siam score:  0.0
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.06810000000000001 0.05 0.06810000000000001
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+146 1291
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+Printing some Q and Qe and total Qs values:  [[0.121]
+ [0.628]
+ [0.06 ]
+ [0.121]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.121]
+ [0.628]
+ [0.06 ]
+ [0.121]]
+actor:  0 policy actor:  0  step number:  12 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  13 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+Printing some Q and Qe and total Qs values:  [[0.219]
+ [0.922]
+ [0.219]
+ [0.219]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.219]
+ [0.922]
+ [0.219]
+ [0.219]]
+maxi score, test score, baseline:  0.0741 0.05 0.0741
+probs:  [1.0]
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+Printing some Q and Qe and total Qs values:  [[0.26 ]
+ [0.892]
+ [0.217]
+ [0.015]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.26 ]
+ [0.892]
+ [0.217]
+ [0.015]]
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  12 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.08410000000000001 0.05 0.08410000000000001
+probs:  [1.0]
+Training Flag: True
+Self play flag: True
+resampling flag: False
+add more workers flag:  False
+expV_train_flag:  False
+expV_train_start_flag:  255000
+maxi score, test score, baseline:  0.08410000000000001 0.05 0.08410000000000001
+siam score:  0.0
+maxi score, test score, baseline:  0.0821 0.05 0.0821
+probs:  [1.0]
+maxi score, test score, baseline:  0.0821 0.05 0.0821
+probs:  [1.0]
+maxi score, test score, baseline:  0.0821 0.05 0.0821
+probs:  [1.0]
+line 256 mcts: sample exp_bonus 0.0
+146 1352
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+146 1360
+Printing some Q and Qe and total Qs values:  [[0.265]
+ [0.265]
+ [0.636]
+ [0.265]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.265]
+ [0.265]
+ [0.636]
+ [0.265]]
+maxi score, test score, baseline:  0.08410000000000001 0.05 0.08410000000000001
+probs:  [1.0]
+maxi score, test score, baseline:  0.08410000000000001 0.05 0.08410000000000001
+probs:  [1.0]
+146 1367
+maxi score, test score, baseline:  0.0821 0.05 0.0821
+probs:  [1.0]
+maxi score, test score, baseline:  0.0821 0.05 0.0821
+probs:  [1.0]
+maxi score, test score, baseline:  0.0741 0.05 0.0741
+probs:  [1.0]
+146 1386
+maxi score, test score, baseline:  0.0741 0.05 0.0741
+actor:  0 policy actor:  0  step number:  9 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+149 1392
+line 256 mcts: sample exp_bonus 0.0
+Printing some Q and Qe and total Qs values:  [[0.104]
+ [0.512]
+ [0.665]
+ [0.104]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.104]
+ [0.512]
+ [0.665]
+ [0.104]]
+actor:  0 policy actor:  0  step number:  14 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0761 0.05 0.0761
+probs:  [1.0]
+149 1404
+maxi score, test score, baseline:  0.0761 0.05 0.0761
+probs:  [1.0]
+maxi score, test score, baseline:  0.0761 0.05 0.0761
+Printing some Q and Qe and total Qs values:  [[0.246]
+ [0.173]
+ [0.313]
+ [0.246]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.246]
+ [0.173]
+ [0.313]
+ [0.246]]
+actor:  0 policy actor:  0  step number:  8 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+actor:  0 policy actor:  0  step number:  7 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0801 0.05 0.0801
+probs:  [1.0]

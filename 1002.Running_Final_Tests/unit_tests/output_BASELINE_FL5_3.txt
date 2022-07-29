@@ -1,0 +1,378 @@
+dirichlet_alpha:0.3
+noise:0.3
+dirichlet_alpha:0.5
+noise:0.5
+sims:{-1: 6, 6000: 25}
+c1:1
+c2:19652
+temperature_init:1
+temperature_changes:{-1: 1, 3000000.0: 0.5}
+manual_over_ride_play_limit:None
+exponent_node_n:1
+ucb_denom_k:1
+use_policy:True
+model_expV_on_dones:True
+norm_Qs_OnMaxi:True
+norm_Qs_OnAll:True
+norm_each_turn:False
+state_channels:64
+res_block_kernel_size:3
+res_block_channels:[32, 32, 64, 64, 64]
+res_block_ds:[False, True, False, False, False]
+conv1:{'channels': 32, 'kernel_size': 3, 'stride': 2, 'padding': 1}
+conv2:{'channels': 64, 'kernel_size': 3, 'stride': 2, 'padding': 1}
+reward_support:[-1, 1, 51]
+conv1:{'kernel_size': 3, 'stride': 1, 'padding': 1}
+res_blocks:[64, 64]
+reward_conv_channels:32
+reward_hidden_dim:128
+terminal_conv_channels:32
+terminal_hidden_dim:64
+value_support:[-1, 1, 51]
+res_block:[64]
+value_conv_channels:32
+value_hidden_dim:128
+policy_conv_channels:32
+policy_hidden_dim:128
+expV_conv_channels:32
+expV_hidden_dim:128
+expV_support:[-10, 10, 51]
+proj_l1:256
+proj_out:128
+pred_hid:256
+replay_buffer_size:50000
+replay_buffer_size_exploration:200000
+all_time_buffer_size:200000
+batch_size:128
+play_workers:2
+min_workers:2
+max_workers:6
+lr:0.001
+lr_warmup:1000
+lr_decay:1
+lr_decay_step:100000
+optimizer:<class 'torch.optim.rmsprop.RMSprop'>
+momentum:0.9
+l2:0.0001
+rho:0.99
+k:5
+value:0.25
+dones:2.0
+siam:2
+rdn:0.5
+expV:0.5
+train_start_batch_multiple:2
+prioritised_replay:True
+resampling:False
+resampling_use_max:False
+resampling_assess_best_child:False
+rs_start:1000
+ep_to_batch_ratio:[9, 10]
+main_to_rdn_ratio:2
+train_to_RS_ratio:4
+on_policy_expV:False
+rgb_im:True
+channels:3
+state_size:[6, 6]
+timesteps_in_obs:2
+store_prev_actions:True
+env:<class 'game_play.frozen_lakeGym_Image.gridWorld'>
+same_env_each_time:True
+env_size:[5, 5]
+observable_size:[5, 5]
+game_modes:1
+env_map:[['S' 'H' 'H' 'F' 'F']
+ ['F' 'F' 'H' 'F' 'H']
+ ['F' 'F' 'F' 'F' 'F']
+ ['F' 'F' 'F' 'F' 'H']
+ ['F' 'H' 'F' 'F' 'G']]
+max_steps:40
+actions_size:4
+optimal_score:1
+total_frames:305000
+exp_gamma:0.95
+atari_env:False
+reward_clipping:False
+memory_size:100
+image_size:[48, 48]
+running_reward_in_obs:False
+deque_length:3
+PRESET_CONFIG:4
+VK:False
+follow_better_policy:0.0
+use_two_heads:False
+use_siam:True
+exploration_type:none
+rdn_beta:[0, 0.0, 1]
+explorer_percentage:0.0
+reward_exploration:False
+train_dones:True
+norm_state_vecs:False
+RND_output_vector:256
+RND_loss:cosine
+prediction_bias:True
+distance_measure:False
+update_play_model:16
+gamma:0.99
+calc_n_step_rewards_after_frames:10000
+N_steps_reward:5
+start_frame_count:0
+load_in_model:False
+log_states:True
+log_metrics:False
+exploration_logger_dims:(1, 25)
+device_train:cpu
+device_selfplay:cpu
+eval_x_frames:10000
+eval_count:20
+detach_expV_calc:True
+use_new_episode_expV:True
+start_training_expV_min:10000
+start_training_expV_max:20000
+start_training_expV_siam_override:0.8
+value_only:False
+[['S' 'H' 'H' 'F' 'F']
+ ['F' 'F' 'H' 'F' 'H']
+ ['F' 'F' 'F' 'F' 'F']
+ ['F' 'F' 'F' 'F' 'H']
+ ['F' 'H' 'F' 'F' 'G']]
+main train batch thing paused
+add a thread
+Adding thread: now have 3 threads
+0 11
+5 69
+Sims:  6 1 epoch:  713 pick best:  False frame count:  713
+actor:  0 policy actor:  0  step number:  15 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+Starting evaluation
+siam score:  -0.010476534720510244
+rdn probs:  [1.0]
+Printing some Q and Qe and total Qs values:  [[0.002]
+ [0.002]
+ [0.002]
+ [0.002]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.002]
+ [0.002]
+ [0.002]
+ [0.002]]
+maxi score, test score, baseline:  0.005363157894736842 0.0 0.005363157894736842
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+deleting a thread, now have 2 threads
+Frames:  1236 train batches done:  29 episodes:  171
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005308333333333333 0.0 0.005308333333333333
+probs:  [1.0]
+maxi score, test score, baseline:  0.005125125628140704 0.0 0.005125125628140704
+actor:  0 policy actor:  0  step number:  34 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.00883362445414847 0.0 0.00883362445414847
+probs:  [1.0]
+maxi score, test score, baseline:  0.00883362445414847 0.0 0.00883362445414847
+probs:  [1.0]
+maxi score, test score, baseline:  0.00883362445414847 0.0 0.00883362445414847
+maxi score, test score, baseline:  0.00883362445414847 0.0 0.00883362445414847
+maxi score, test score, baseline:  0.00883362445414847 0.0 0.00883362445414847
+probs:  [1.0]
+maxi score, test score, baseline:  0.007851937984496123 0.0 0.007851937984496123
+maxi score, test score, baseline:  0.007792307692307693 0.0 0.007792307692307693
+probs:  [1.0]
+maxi score, test score, baseline:  0.007675757575757576 0.0 0.007675757575757576
+probs:  [1.0]
+maxi score, test score, baseline:  0.007480073800738007 0.0 0.007480073800738007
+probs:  [1.0]
+maxi score, test score, baseline:  0.007117543859649123 0.0 0.007117543859649123
+17 250
+maxi score, test score, baseline:  0.006614657980456027 0.0 0.006614657980456027
+probs:  [1.0]
+maxi score, test score, baseline:  0.006489776357827476 0.0 0.006489776357827476
+probs:  [1.0]
+maxi score, test score, baseline:  0.006409148264984227 0.0 0.006409148264984227
+probs:  [1.0]
+maxi score, test score, baseline:  0.006350000000000001 0.0 0.006350000000000001
+probs:  [1.0]
+maxi score, test score, baseline:  0.006350000000000001 0.0 0.006350000000000001
+probs:  [1.0]
+maxi score, test score, baseline:  0.006350000000000001 0.0 0.006350000000000001
+probs:  [1.0]
+18 288
+maxi score, test score, baseline:  0.006216207951070337 0.0 0.006216207951070337
+probs:  [1.0]
+18 291
+maxi score, test score, baseline:  0.006124096385542169 0.0 0.006124096385542169
+probs:  [1.0]
+maxi score, test score, baseline:  0.005947953216374269 0.0 0.005947953216374269
+maxi score, test score, baseline:  0.00556448087431694 0.0 0.00556448087431694
+maxi score, test score, baseline:  0.005534782608695652 0.0 0.005534782608695652
+probs:  [1.0]
+siam score:  -0.39621103
+maxi score, test score, baseline:  0.005534782608695652 0.0 0.005534782608695652
+probs:  [1.0]
+maxi score, test score, baseline:  0.005534782608695652 0.0 0.005534782608695652
+actor:  0 policy actor:  0  step number:  23 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0074710073710073715 0.0 0.0074710073710073715
+probs:  [1.0]
+maxi score, test score, baseline:  0.0074710073710073715 0.0 0.0074710073710073715
+probs:  [1.0]
+maxi score, test score, baseline:  0.0074710073710073715 0.0 0.0074710073710073715
+probs:  [1.0]
+maxi score, test score, baseline:  0.0074710073710073715 0.0 0.0074710073710073715
+probs:  [1.0]
+maxi score, test score, baseline:  0.0074710073710073715 0.0 0.0074710073710073715
+probs:  [1.0]
+20 404
+maxi score, test score, baseline:  0.006766666666666667 0.0 0.006766666666666667
+probs:  [1.0]
+21 432
+maxi score, test score, baseline:  0.006350000000000001 0.0 0.006350000000000001
+probs:  [1.0]
+siam score:  -0.36645442
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+23 481
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+24 507
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+24 544
+25 546
+siam score:  -0.40318444
+actor:  0 policy actor:  0  step number:  18 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0081 0.0 0.0081
+probs:  [1.0]
+siam score:  -0.3971363
+maxi score, test score, baseline:  0.0081 0.0 0.0081
+probs:  [1.0]
+maxi score, test score, baseline:  0.0081 0.0 0.0081
+probs:  [1.0]
+maxi score, test score, baseline:  0.0081 0.0 0.0081
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+26 589
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+UNIT TEST: sample policy line 217 mcts : [0.2 0.4 0.2 0.2]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+30 615
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+32 647
+actor:  0 policy actor:  0  step number:  10 total reward:  1.0  reward:  1.0 rdn_beta:  0.0
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+siam score:  -0.4767828
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+siam score:  -0.48008963
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+36 725
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+siam score:  -0.47537863
+Printing some Q and Qe and total Qs values:  [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.]
+ [0.]
+ [0.]
+ [0.]] [[0.]
+ [0.]
+ [0.]
+ [0.]]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]
+maxi score, test score, baseline:  0.0061 0.0 0.0061
+probs:  [1.0]

@@ -1,0 +1,43 @@
+EVALUATIONS AND MAIN RESULTS
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+maxi score:  0.011594252873563218
+siam score:  0.0
+Scores:  {'0.0': 0.0001}
+best rdn ma / adv:  0.0 0.0
+best rdn adv:  0.0
+Episodes: 72, frames: 1019, time: 25.51316523551941
+training steps:  5
+retraining steps:  0
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+72 : 0.0
+LR:  4e-06
+replay buffer size:  1325
+Time Taken :  0.0  mins 25.512997150421143  seconds
+[[[219. 143.  75.  32.]
+  [159.  81.  37.   7.]
+  [ 68.  43.  10.   0.]
+  [ 52.  19.   1.   1.]]]
+Test reward:  0.05
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+maxi score:  0.0281
+siam score:  0.0
+Scores:  {'0.0': 0.0001}
+best rdn ma / adv:  0.0 0.0
+best rdn adv:  0.0
+Episodes: 800, frames: 10327, time: 738.6947271823883
+training steps:  791
+retraining steps:  0
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+800 : 0.0
+LR:  0.00079
+replay buffer size:  10926
+Time Taken :  12.0  mins 18.694555282592773  seconds
+[[[2207. 1458.  631.  371.]
+  [1455.  822.  417.   80.]
+  [ 700.  453.  164.   60.]
+  [ 412.  242.   37.   18.]]]

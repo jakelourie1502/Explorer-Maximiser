@@ -201,7 +201,7 @@ class Config:
         self.training.resampling_assess_best_child = False
         
         self.training.rs_start = 1 * 1000
-        self.training.ep_to_batch_ratio = [9,10]
+        self.training.ep_to_batch_ratio = [15,16]
         self.training.main_to_rdn_ratio = 2
         self.training.train_to_RS_ratio = 4
         self.training.on_policy_expV = False

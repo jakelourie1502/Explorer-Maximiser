@@ -148,7 +148,7 @@ def compute_BL(algo):
                     done_tensor_tmin1 = torch.zeros((len(indices),algo.K))
                     done_tensor_same_t = torch.zeros((len(indices),algo.K))
                     weights = torch.tensor(weights).to(algo.cfg.device_train).reshape(-1,1)
-                    loss = 0
+                    
 
                     ##### EXPV
                     expV_capturer = torch.zeros((algo.cfg.training.batch_size, algo.K, algo.cfg.prediction.expV_support[2]))

@@ -453,7 +453,7 @@ class Config:
                 self.max_steps = 100
             self.actions_size = 5
             self.optimal_score = 1
-            self.total_frames = 205 * 1000
+            self.total_frames = 255 * 1000
             self.exp_gamma = 0.95
             self.mcts.sims = {-1:6,6000: 25}
             self.atari_env = False

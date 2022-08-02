@@ -136,8 +136,8 @@ class Config:
         ### training
         
         self.training.replay_buffer_size = 50 * 1000
-        self.training.replay_buffer_size_exploration = 200 * 1000
-        self.training.all_time_buffer_size = 200 * 1000
+        self.training.replay_buffer_size_exploration = 305 * 1000
+        self.training.all_time_buffer_size = 305 * 1000
         self.training.batch_size = 128
         self.training.play_workers = 2
         self.training.min_workers = 1

@@ -72,7 +72,7 @@ class Replay_Buffer():
             batch_size = self.cfg.training.batch_size
         
         batch_n = batch_size
-        min_len = min(len(self.n_step_returns),len(self.exp_r)) 
+        min_len = min(len(self.ep_id),len(self.actor_id)) 
         if not resampling and not exploration_sampling: #this is if the length of the replay buffer varies for resampling
             start = max(0, min_len-self.cfg.training.replay_buffer_size)
         elif exploration_sampling:

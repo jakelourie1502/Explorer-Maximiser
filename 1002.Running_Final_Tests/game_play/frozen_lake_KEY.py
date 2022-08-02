@@ -4,6 +4,7 @@ import sys
 
 from torch import ge
 sys.path.append("..")
+sys.path.append(".")
 
 from collections import deque
 from gym.envs.toy_text.frozen_lake import generate_random_map
@@ -269,7 +270,7 @@ class gridWorld(Env):
 if __name__ == '__main__':
     from config import Config as cfg
     import matplotlib.pyplot as plt
-    c = cfg(6,5)
+    c = cfg(7,7)
     
     env=gridWorld(c)
     for _ in range(2):

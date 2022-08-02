@@ -23,6 +23,7 @@ class Prediction(torch.nn.Module):
         self.device = device
         self.state_channels = self.cfg.model.state_channels
         self.beta_conv = torch.nn.Conv2d(self.state_channels+1,self.state_channels,1,1,0)
+        self.beta_bn = torch.nn.BatchNorm2d(self.state_channels)
         self.resBlocks = torch.nn.ModuleList([resBlock(x,self.device,self.cfg) for x in self.cfg.prediction.res_block])
         
         #value
@@ -60,6 +61,7 @@ class Prediction(torch.nn.Module):
         rdn_beta_plane = rdn_beta_plane.float()
         state = torch.cat((state,rdn_beta_plane),dim=1) #appends this to the state
         state = self.beta_conv(state)
+        state = self.beta_bn(state)
         state = self.relu(state)
         
         for block in self.resBlocks:
@@ -78,7 +80,6 @@ class Prediction(torch.nn.Module):
           p = self.FCoutP(p)
           p = self.sm_p(p)
           
-
           ##value
           v = state 
           v = self.value_conv(v)

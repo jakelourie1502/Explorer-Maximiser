@@ -85,9 +85,9 @@ class ExpMax(torch.nn.Module):
             nn.ReLU(),
             nn.Flatten(),
             nn.Linear(self.cfg.state_size[0]*self.cfg.state_size[1] * self.state_channels, 512),
+            nn.BatchNorm1d(512),
             nn.ReLU(),
             nn.Linear(512,128),
-            nn.ReLU(),
         )
         self.close_state_projection_obs = nn.Sequential(
             nn.Conv2d(3, 32,3,2,1), #24
@@ -99,28 +99,26 @@ class ExpMax(torch.nn.Module):
             nn.AvgPool2d(2,2), #8
             nn.Flatten(),
             nn.Linear(6*6*64,512),
+            nn.BatchNorm1d(512),
             nn.ReLU(),
             nn.Linear(512, 128),
-            nn.ReLU(),
-            
         )
 
-        if self.cfg.distance_measure:
-            self.close_state_classifer = nn.Sequential(
+        self.close_state_classifer = nn.Sequential(
             nn.Linear(256, 180),
+            nn.BatchNorm1d(180),
             nn.ReLU(),
-            nn.Linear(180,3),
-            nn.Softmax(1)
-            )
-        else:
-            self.close_state_classifer = nn.Sequential(
-            nn.Linear(256, 180),
-            nn.ReLU(),
-            nn.Linear(180,1),
+            nn.Linear(180,self.cfg.actions_size),
+            nn.Softmax(1),
             
-            nn.Sigmoid()
         )
-    
+        
+        self.state_vecs_proj = nn.Sequential(
+            nn.Linear(128, 64),
+            nn.BatchNorm1d(64),
+            nn.ReLU(),
+            nn.Linear(64,128)
+        )
     def representation(self, x):
         return self.representation_network(x)
 
@@ -138,3 +136,8 @@ class ExpMax(torch.nn.Module):
         else:
             return proj.detach()
     
+    def contrast_two_state_vecs(self, x, y):
+        x = self.state_vecs_proj(x)
+        y = self.state_vecs_proj(y)
+        # return torch.nn.CosineSimilarity(dim=1)(x,y).reshape(-1,1) / 0.07
+        return torch.nn.CosineSimilarity(dim=1)(x,y).reshape(-1,1)

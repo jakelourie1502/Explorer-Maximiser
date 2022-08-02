@@ -10,9 +10,6 @@ class Training_flags:
         self.self_play_flag = True
         self.started_training = False
         self.train_flag = False
-        self.started_resampling = False
-        self.resampling_flag = False
-        self.train_head_start_over_resampling = 0
         self.head_start_set = False
         self.add_more_self_play_workers = False
         self.expV_train_flag = False
@@ -21,13 +18,11 @@ class Training_flags:
     def run(self):
         while self.algo.frame_count < self.cfg.total_frames:
             self.set_self_play()
-            self.set_resample()
             self.set_train()
             self.set_expV_start_flag()
             if np.random.uniform(0,25) < 1:
                 print(f"Training Flag: {self.train_flag}")
                 print(f"Self play flag: {self.self_play_flag}")
-                print(f"resampling flag: {self.resampling_flag}")
                 print("add more workers flag: ", self.add_more_self_play_workers)
                 print("expV_train_flag: ", self.expV_train_flag)
                 print("expV_train_start_flag: ", self.expV_training_start_flag)
@@ -57,21 +52,6 @@ class Training_flags:
         else:
             self.self_play_flag = True
     
-    def set_resample(self):
-        if self.algo.cfg.training.resampling and self.algo.frame_count > self.algo.cfg.training.rs_start:
-            self.started_resampling = True
-            print("Set resampling start")
-            if not self.head_start_set:
-
-                self.train_head_start_over_resampling = self.algo.training_step_counter
-                self.head_start_set = True
-                print(f"Set head start: {self.train_head_start_over_resampling}")
-        
-        if self.cfg.training.resampling and self.started_resampling and\
-            self.algo.training_step_counter - self.train_head_start_over_resampling + 5 > self.algo.resampling_step_counter * self.algo.cfg.training.train_to_RS_ratio:
-            self.resampling_flag = True
-        else:
-            self.resampling_flag = False
 
     def set_train(self):
         min_frames_to_start_training = self.algo.cfg.training.batch_size*self.algo.cfg.training.train_start_batch_multiple
@@ -83,13 +63,8 @@ class Training_flags:
             frames_trained_to_played_ratio < max_train_to_play_ratio:
             self.add_more_self_play_workers = False
 
-            if self.cfg.training.resampling and self.started_resampling:
-                if self.algo.training_step_counter - self.train_head_start_over_resampling <= self.algo.resampling_step_counter * 1.25 * self.algo.cfg.training.train_to_RS_ratio + 5:
-                    self.train_flag = True
-                else:
-                    self.train_flag = False
-            else:
-                self.train_flag = True
+
+            self.train_flag = True
         else:
             self.train_flag = False
             self.add_more_self_play_workers = True

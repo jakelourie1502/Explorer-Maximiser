@@ -1,0 +1,226 @@
+EVALUATIONS AND MAIN RESULTS
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+maxi score:  0.0001
+siam score:  -0.003317577896329264
+Scores:  {'1.0': 0.0001, '1.5': 0.0001, '2.0': 0.0001, '2.5': 0.0001, '3.0': 0.0001}
+best rdn ma / adv:  1.0 1.0
+best rdn adv:  0.0
+Episodes: 106, frames: 1080, time: 27.14618968963623
+training steps:  3
+retraining steps:  0
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+106 : 0.0
+LR:  2e-06
+replay buffer size:  1282
+Time Taken :  0.0  mins 27.14602017402649  seconds
+[[[370. 148.  28.   0.   0.   0.   0.   0.]
+  [161.  58.   0.   0.   0.   0.   0.   0.]
+  [ 46.  16.   1.   2.   0.   0.   0.   0.]
+  [ 28.  19.   7.   3.   0.   0.   0.   0.]
+  [  7.   8.   4.   2.   0.   0.   0.   0.]
+  [  6.   3.   0.   0.   0.   0.   0.   0.]
+  [ 19.   2.   2.   0.   0.   0.   0.   0.]
+  [ 23.   2.   2.   6.   1.   0.   0.   0.]]]
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+maxi score:  0.0001
+siam score:  -0.5592671
+Scores:  {'1.0': 0.0001, '1.5': 0.0001, '2.0': 0.0001, '2.5': 0.0001, '3.0': 0.0001}
+best rdn ma / adv:  1.0 1.0
+best rdn adv:  0.0
+Episodes: 1340, frames: 10100, time: 2298.172075033188
+training steps:  1184
+retraining steps:  0
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+1340 : 0.0
+LR:  0.001
+replay buffer size:  10422
+Time Taken :  38.0  mins 18.171913146972656  seconds
+[[[3016. 1829.  523.   20.   19.   11.   13.    2.]
+  [1388.  664.    9.   21.    6.    4.    3.    2.]
+  [ 397.  109.   22.   24.    8.    0.    0.    0.]
+  [ 169.  107.   57.   23.    6.    0.    0.    0.]
+  [  69.   55.   26.   14.    1.    0.    0.    0.]
+  [  27.   23.    9.    0.    1.    0.    0.    0.]
+  [  23.    6.    4.    0.    2.    0.    0.    0.]
+  [  25.    6.    6.    7.    4.    0.    0.    0.]]]
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+maxi score:  0.0001
+siam score:  -0.62390494
+Scores:  {'1.0': 0.0001, '1.5': 0.0001, '2.0': 0.0001, '2.5': 0.0001, '3.0': 0.0001}
+best rdn ma / adv:  1.0 1.0
+best rdn adv:  0.0
+Episodes: 2487, frames: 20028, time: 5269.356281757355
+training steps:  2348
+retraining steps:  0
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+2487 : 0.0
+LR:  0.001
+replay buffer size:  20473
+Time Taken :  87.0  mins 49.356128215789795  seconds
+[[[5626. 3528.  902.   65.   43.   25.   24.    4.]
+  [2706. 1220.   58.   85.   39.   24.    9.    5.]
+  [ 896.  236.  126.  119.   30.    8.    4.    0.]
+  [ 435.  331.  235.   96.   23.    1.    2.    0.]
+  [ 141.  143.   95.   35.    1.    0.    0.    0.]
+  [  46.   46.   27.    0.    1.    0.    0.    0.]
+  [  31.   10.    6.    0.    2.    0.    0.    0.]
+  [  26.    7.    8.    7.    4.    0.    0.    0.]]]
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+maxi score:  0.0001
+siam score:  -0.6453072
+Scores:  {'1.0': 0.0001, '1.5': 0.0001, '2.0': 0.0001, '2.5': 0.0001, '3.0': 0.0001}
+best rdn ma / adv:  1.0 1.0
+best rdn adv:  0.0
+Episodes: 3613, frames: 30099, time: 8205.037964105606
+training steps:  3522
+retraining steps:  0
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+3613 : 0.0
+LR:  0.001
+replay buffer size:  30683
+Time Taken :  136.0  mins 45.037803173065186  seconds
+[[[7940. 5156. 1273.  210.  101.   75.   38.    5.]
+  [4031. 1778.  119.  217.   86.   48.   16.    8.]
+  [1368.  339.  236.  223.   57.   27.   11.    1.]
+  [ 719.  533.  418.  183.   39.   10.    5.    0.]
+  [ 228.  240.  154.   56.    2.    3.    2.    0.]
+  [  69.   74.   39.    1.    2.    0.    0.    0.]
+  [  59.   29.   14.    1.    6.    1.    0.    0.]
+  [ 125.   57.   29.   15.   10.    0.    0.    0.]]]
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+maxi score:  0.0001
+siam score:  -0.6206189
+Scores:  {'1.0': 0.0001, '1.5': 0.0001, '2.0': 0.0001, '2.5': 0.0001, '3.0': 0.0001}
+best rdn ma / adv:  1.0 1.0
+best rdn adv:  0.0
+Episodes: 4769, frames: 40098, time: 11102.572872877121
+training steps:  4697
+retraining steps:  0
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+4769 : 0.0
+LR:  0.001
+replay buffer size:  40831
+Time Taken :  185.0  mins 2.572740316390991  seconds
+[[[10374.  6803.  1636.   328.   204.   125.    47.     6.]
+  [ 5497.  2366.   174.   317.   140.    77.    23.    10.]
+  [ 1884.   459.   306.   293.    93.    53.    14.     2.]
+  [  966.   681.   543.   245.    50.    25.     8.     0.]
+  [  296.   307.   194.    73.     6.     9.     3.     0.]
+  [   87.    91.    45.     2.     5.     1.     1.     0.]
+  [   70.    39.    17.     7.    11.     1.     1.     0.]
+  [  147.    83.    45.    23.    16.     0.     0.     0.]]]
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+maxi score:  0.0001
+siam score:  -0.6487651
+Scores:  {'1.0': 0.0001, '1.5': 0.0001, '2.0': 0.0001, '2.5': 0.0001, '3.0': 0.0001}
+best rdn ma / adv:  1.0 1.0
+best rdn adv:  0.0
+Episodes: 5920, frames: 50093, time: 13615.99166893959
+training steps:  5868
+retraining steps:  0
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+5920 : 0.0
+LR:  0.001
+replay buffer size:  50991
+Time Taken :  226.0  mins 55.99151015281677  seconds
+[[[12901.  8476.  1986.   432.   283.   180.    82.    17.]
+  [ 6910.  2970.   215.   412.   189.   117.    43.    21.]
+  [ 2421.   579.   398.   371.   109.    84.    24.     3.]
+  [ 1191.   845.   678.   299.    67.    46.    12.     0.]
+  [  335.   346.   217.    83.     7.    14.     3.     0.]
+  [  107.   115.    53.     2.     5.     4.     1.     0.]
+  [   76.    51.    22.     7.    11.     1.     1.     0.]
+  [  156.   102.    49.    25.    18.     1.     0.     0.]]]
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+maxi score:  0.0001
+siam score:  -0.6569312
+Scores:  {'1.0': 0.0001, '1.5': 0.0001, '2.0': 0.0001, '2.5': 0.0001, '3.0': 0.0001}
+best rdn ma / adv:  1.0 1.0
+best rdn adv:  0.0
+Episodes: 7003, frames: 60073, time: 15368.825297832489
+training steps:  7044
+retraining steps:  0
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+7003 : 0.0
+LR:  0.001
+replay buffer size:  61147
+Time Taken :  256.0  mins 8.825136184692383  seconds
+[[[15379. 10003.  2292.   543.   378.   256.   134.    41.]
+  [ 8412.  3537.   289.   527.   233.   172.    80.    26.]
+  [ 2972.   709.   499.   462.   134.   129.    49.     7.]
+  [ 1416.  1021.   817.   353.    82.    80.    23.     0.]
+  [  378.   388.   248.    93.     7.    35.     6.     0.]
+  [  112.   117.    55.     4.     8.     9.     3.     2.]
+  [   83.    53.    23.     9.    12.     1.     3.     1.]
+  [  160.   105.    53.    28.    18.     1.     0.     0.]]]
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+maxi score:  0.0001
+siam score:  -0.66046435
+Scores:  {'1.0': 0.0001, '1.5': 0.0001, '2.0': 0.0001, '2.5': 0.0001, '3.0': 0.0001}
+best rdn ma / adv:  1.0 1.0
+best rdn adv:  0.0
+Episodes: 8073, frames: 70096, time: 16999.494067907333
+training steps:  8213
+retraining steps:  0
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+8073 : 0.0
+LR:  0.001
+replay buffer size:  71331
+Time Taken :  283.0  mins 19.493905067443848  seconds
+[[[17889. 11580.  2609.   631.   441.   331.   204.    89.]
+  [ 9953.  4090.   332.   623.   274.   218.   129.    34.]
+  [ 3510.   821.   580.   542.   152.   183.    87.    10.]
+  [ 1651.  1184.   945.   402.    98.   115.    35.     1.]
+  [  421.   428.   273.    99.    10.    55.    14.     2.]
+  [  133.   135.    65.     8.     8.    15.     7.     4.]
+  [   89.    62.    26.    12.    12.     1.     3.     1.]
+  [  162.   113.    58.    39.    22.     3.     0.     0.]]]
+Test reward:  0.0
+Q value #end_state_>_threshold:  0
+Q value #non_end_state_>threshold:  0
+maxi score:  0.0001
+siam score:  -0.710528
+Scores:  {'1.0': 0.0001, '1.5': 0.0021, '2.0': 0.0001, '2.5': 0.0001, '3.0': 0.0001}
+best rdn ma / adv:  1.5 1.5
+best rdn adv:  0.00199960002
+Episodes: 9128, frames: 80105, time: 18635.578572034836
+training steps:  9386
+retraining steps:  0
+RDN obj mus: [0, 0, 0, 0, 0]
+RDN obj sigmas: [1, 1, 1, 1, 1]
+9128 : 0.0
+LR:  0.001
+replay buffer size:  81506
+Time Taken :  310.0  mins 35.5784010887146  seconds
+[[[20509. 13217.  2925.   718.   512.   396.   245.   115.]
+  [11504.  4634.   373.   711.   319.   266.   166.    43.]
+  [ 4098.   944.   653.   610.   165.   219.   118.    13.]
+  [ 1886.  1356.  1065.   444.   111.   142.    45.     2.]
+  [  458.   464.   304.   110.    12.    69.    19.     6.]
+  [  140.   137.    68.     8.     8.    20.    11.     5.]
+  [   93.    63.    27.    12.    12.     1.     3.     2.]
+  [  165.   113.    58.    39.    22.     3.     0.     1.]]]

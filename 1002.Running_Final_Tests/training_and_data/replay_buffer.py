@@ -33,7 +33,7 @@ class Replay_Buffer():
         self.rdn_beta = []
         self.exp_r = []
         self.actor_id = []
-        self.episodes = {}
+        
 
     def add_ep_log(self, metrics):
         self.ep_id.extend(metrics['ep_id'])
@@ -104,48 +104,7 @@ class Replay_Buffer():
         
         return torch.tensor(sample_obs).to(self.cfg.device_train), indices, weights
         
-    def sample_episodes(self, batch_size=64):
-
-        ep_ids = list(self.episodes.keys()) 
-        size_of_options = np.array([self.episodes[x]['length'] - 10 for x in ep_ids]).astype(np.float32)
-        
-        if np.random.uniform(0,100) < 1: print(size_of_options[:20])
-        
-        ep_ids_use = np.random.choice(ep_ids, size = batch_size, replace=True, p=size_of_options/np.sum(size_of_options))
-        subject_index_points = [self.select_subject_index_point(self.episodes[x]['length'])[1] for x in ep_ids_use]
-        true_index_info = [self.select_true_index_point(x) for x in subject_index_points]
-        closeness_labels = [x[1] for x in true_index_info]
-        true_index_points = [x[0] for x in true_index_info]
-
-        fake_index_points = [self.select_fake_index_point(x,self.episodes[y]['length']) for x,y in zip(subject_index_points, ep_ids_use)]
-        subject_obs =  torch.tensor(np.array([self.episodes[x]['obs'][y] for x, y in zip(ep_ids_use, subject_index_points)])).float()
-        return subject_obs, ep_ids_use, subject_index_points, true_index_points, fake_index_points, closeness_labels
-
-
-    def select_subject_index_point(self, ep_length):
-        low_point = 10
-        high_point = ep_length - 16
-        if np.random.uniform(0,1000) < 1: print('ep length: ', ep_length)
-        if high_point > low_point:
-            possible_options = list(range(1, ep_length-7))
-        else:
-            possible_options = list(range(1, high_point)) + list(range(low_point,ep_length-7))
-        
-        weighties = np.array(possible_options).astype(np.float32)
-        weighties /= np.sum(weighties)
-        # if np.random.uniform(0,500) < 1:
-        #     print("options / WEIGHTS ", possible_options, weighties)
-        return possible_options, int(np.random.choice(possible_options))
-
-    def select_true_index_point(self, subject_index_point):
-        x = np.random.choice([-3,-2,-1., 0.,1],p=[1/8,1/8,1/2,1/8,1/8])
-        # x = np.random.choice([-2,-1., 0.],p=[1/4,1/2,1/4])
-        return int(subject_index_point - x),(x==-1)+1
-
-    def select_fake_index_point(self, subject_index_point, length):
-        x = list(range(0, subject_index_point-9)) + list(range(subject_index_point+10, length-4))
-        return int(np.random.choice(x))
-
+    
     def save_to_disk(self):
         min_length = len(self.actor_id)
         np.savez('replay_buffer.npy', ep_id = self.ep_id[: min_length], obs = self.obs[: min_length], action = self.action_log[: min_length], reward=self.reward_logs[: min_length], 

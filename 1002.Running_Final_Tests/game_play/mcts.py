@@ -1,4 +1,5 @@
 from array import array
+import copy
 from logging import root
 from re import A
 import time
@@ -79,8 +80,7 @@ class MCTS:
     def one_turn(self,root_node):
         self.mmtotal = MinMaxStats()
         self.mm_epi = MinMaxStats()
-        if self.cfg.mcts.norm_each_turn:
-            self.mm = MinMaxStats()
+        if self.cfg.mcts.norm_each_turn: self.mm = MinMaxStats()
         self.root_node = root_node         
         for _ in range(self.sims):
             self.mcts_go(root_node)
@@ -101,19 +101,20 @@ class MCTS:
         if self.view:
             print("rootnode Q: ", self.root_node.Q)
             print("highest value reached: ", self.mm.maximum)
-            print("Q: ", [x.Q for x in self.root_node.children])
+            print("Q: ", [self.mm.normalize(x.Q) for x in self.root_node.children])
             print("r: ", [x.r for x in self.root_node.children])
             print("v: ", [x.v for x in self.root_node.children])
             print("done: ", [x.d for x in self.root_node.children])
             print("Qe: ", [x.Qe for x in self.root_node.children])
-            print("Total Q:", [(self.mmtotal.normalize(self.mm.normalize(x.Q) + self.ep.rdn_beta*self.ep.actor_id*x.Qe)) for x in self.root_node.children])
+            print("Total Q for non episodic:", [(self.mmtotal.normalize(self.mm.normalize(x.Q) + self.ep.rdn_beta*self.ep.actor_id*x.Qe)) for x in self.root_node.children])
+            print("Total Q for episodic: ", [self.ep.rdn_beta * self.mm_epi.normalize(x.Qe)  + x.Q for x in self.root_node.children])
             print("exp_r: ", [float(x.exp_r) for x in self.root_node.children])
             print("expTOT: ", [float(x.expTOT) for x in self.root_node.children])
             print("policy: ", [float(x.p) for x in self.root_node.children])
             print("move: ", [x.move for x in self.root_node.children])
             print(self.mm_epi.minimum, self.mm_epi.maximum)
             for c in self.root_node.children:
-                print("exp_r: ", [float(x.exp_r) for x in c.children])
+                print("exp_r: ", [float(x.expTOT) for x in c.children])
         return policy, chosen_action, self.root_node.Q, self.root_node.v, self.root_node.Qe,\
             self.root_node.children[chosen_action].exp_r, self.root_node.children[chosen_action].r
         
@@ -146,33 +147,32 @@ class MCTS:
             else:
                 node.exp_r = 0
 
-            if self.cfg.exploration_type == 'episodic' and self.ep.move_number > 5:
-                mn = min(self.ep.move_number, 10)
+            vec_cnt = len(self.ep.state_vectors) + len(node.SVs)  # + len(node.SVs) 
+            if self.cfg.exploration_type == 'episodic' and vec_cnt > 5:
+                mn = min(vec_cnt, 10)
                 projection = self.ep.model.close_state_projection(node.state) # 1 x 128
-                projections = projection.repeat(min(self.ep.move_number,self.cfg.memory_size), 1) # moveNum, 128
-                tensor_of_prev_visited_states = torch.cat(list(self.ep.state_vectors),dim=0) #moveNum, 128
-                neighbours = self.ep.model.close_state_classifer(torch.cat((projections, tensor_of_prev_visited_states),1)) #moveNum, 1 or movenum x 3 if distance
-                if self.cfg.distance_measure:
-                    neighbours = neighbours @ torch.tensor([[0],[.5],[1]])
-                # neighbours = []            
-                # for n in self.ep.state_vectors:
-                #     neighbours.append(self.ep.model.close_state_classifer(torch.cat((projection, n),1)))
-                # neighbours = torch.tensor(neighbours)
+                projections = projection.repeat(vec_cnt, 1) # moveNum, 128
+                if self.cfg.append_mcts_svs:
+                    tensor_of_prev_visited_states = torch.cat(list(self.ep.state_vectors) + (list(node.SVs)),0)
 
-                if node.parent == self.root_node and self.view:
+                else:
+                    tensor_of_prev_visited_states = torch.cat(list(self.ep.state_vectors),0)
+                neighbours = torch.nn.CosineSimilarity(dim=1)(projections, tensor_of_prev_visited_states).reshape(-1) #moveNum, 1 or movenum x 3 if distance
+                gammas = torch.tensor(np.array([(0.5**(1/self.cfg.memory_size))**x for x in reversed(range(vec_cnt))]))
+                neighbours *= gammas
+                
+                if self.view and node.parent == self.root_node:
                     print("move: ", node.move)
                     print('root node neighbours and sum of proj: ', neighbours)
-                    print("size of vec: ", torch.sum(projection))
-                
-                nearest_neighbours = neighbours.reshape(-1).sort(descending=True)[0].numpy()
-                
-                
-                # if node.parent == self.root_node and self.view:
-                #     print("move: ", node.move)
-                #     print('sorted neighbours: ', nearest_neighbours)
+                    
+                    print("level: ", node.level)
+                    print("length: ",len(tensor_of_prev_visited_states))
+                    
+                nearest_neighbours = neighbours.sort(descending=True)[0].numpy()
                 nearest_neighbours = nearest_neighbours[:mn]
                 node.ep_nov = np.sum((1-nearest_neighbours))*(100/mn)
-                
+                if self.cfg.append_mcts_svs: node.SVs.append(projection)
+
                 if node != self.root_node:
                     node.ep_nov = (1-node.parent.d) * node.ep_nov
                 
@@ -200,7 +200,6 @@ class MCTS:
         elif self.cfg.exploration_type == 'rdn': 
             node.expTOT = node.exp_r
         elif self.cfg.exploration_type == 'episodic':
-            
             node.expTOT = node.ep_nov
         else:
             node.expTOT = 0
@@ -230,6 +229,8 @@ class MCTS:
             new_node.move = edge
             node.children.append(new_node)
             new_node.level = min(node.level + 1, self.cfg.training.k)
+            new_node.SVs = copy.deepcopy(node.SVs)
+            
     
     def extract_v_and_policy(self, node):
         if self.cfg.use_two_heads:
@@ -253,6 +254,8 @@ class MCTS:
             policy, v, expV = p[0], v[0], expV[0]
             v = support_to_scalar(v.detach().numpy(), *self.cfg.prediction.value_support)
             return v, policy, expV
+        
+        
 
     def pick_child(self,node):
         Qs = np.array([x.Q for x in node.children]).reshape(-1,1) #5 x 1
@@ -272,7 +275,7 @@ class MCTS:
                 Qs = self.mm.normalize(Qs) 
             
             if self.cfg.exploration_type == 'rdn':
-                total_Qs = 2*self.mmtotal.normalize(Qs + self.ep.rdn_beta * Qes)
+                total_Qs = self.mmtotal.normalize(Qs + self.ep.rdn_beta * Qes)
             
             if self.cfg.exploration_type == 'episodic':
                 

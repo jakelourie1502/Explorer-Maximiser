@@ -17,18 +17,22 @@ class resBlock(torch.nn.Module):
         self.device = device
         self.cfg = cfg
         self.state_channels = self.cfg.model.state_channels
-        self.conv1 = torch.nn.Conv2d(in_channels = channels,out_channels = channels * 2 ,kernel_size = self.cfg.model.res_block_kernel_size,stride = self.stride,padding = self.cfg.model.res_block_kernel_size // 2) #, padding_mode='replicate')
-        self.bn1 = torch.nn.BatchNorm2d(channels*2)
+        
         if self.downsample:
+            self.conv1 = torch.nn.Conv2d(in_channels = channels,out_channels = channels*2,kernel_size = self.cfg.model.res_block_kernel_size,stride = self.stride,padding = self.cfg.model.res_block_kernel_size // 2) #, padding_mode='replicate')
+            self.bn1 = torch.nn.BatchNorm2d(channels*2)
             self.convIdentity = torch.nn.Conv2d(in_channels = channels * 2, out_channels = 2*channels, kernel_size = 1, stride = 1, padding=0)
             self.bn2 = torch.nn.BatchNorm2d(2*channels)
+            self.convID2 = torch.nn.Conv2d(in_channels=channels, out_channels=2*channels, kernel_size= 3, stride = 2, padding=1)
         else:
-            self.convIdentity = torch.nn.Conv2d(in_channels = channels * 2, out_channels = channels, kernel_size = 1, stride = 1, padding=0)
+            self.conv1 = torch.nn.Conv2d(in_channels = channels,out_channels = channels,kernel_size = self.cfg.model.res_block_kernel_size,stride = self.stride,padding = self.cfg.model.res_block_kernel_size // 2) #, padding_mode='replicate')
+            self.bn1 = torch.nn.BatchNorm2d(channels)
+            self.convIdentity = torch.nn.Conv2d(in_channels = channels, out_channels = channels, kernel_size = 1, stride = 1, padding=0)
             self.bn2 = torch.nn.BatchNorm2d(channels)
         self.relu = torch.nn.ReLU()
-        if downsample:
-            self.convID2 = torch.nn.Conv2d(in_channels=channels, out_channels=2*channels, kernel_size= 1, stride = 2, padding=0)
-            self.bn3 = torch.nn.BatchNorm2d(2*channels)
+        
+            
+            
             
     def forward(self,x):
         identity = x
@@ -39,7 +43,6 @@ class resBlock(torch.nn.Module):
         x = self.bn2(x)
         if self.downsample:
           identity = self.convID2(identity)
-          identity = self.bn3(identity)
 
         x += identity
         x = self.relu(x)

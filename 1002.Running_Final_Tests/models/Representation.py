@@ -18,8 +18,6 @@ class Representation(torch.nn.Module):
         self.device = device
         self.state_channels = self.cfg.model.state_channels
         self.obs_size = (self.cfg.channels) * (self.cfg.timesteps_in_obs)
-        if self.cfg.running_reward_in_obs:
-          self.obs_size += self.cfg.timesteps_in_obs - 1
         if self.cfg.store_prev_actions:
           self.obs_size += self.cfg.timesteps_in_obs - 1
         self.conv1 = torch.nn.Conv2d(in_channels = self.obs_size,out_channels = self.cfg.repr.conv1['channels'],

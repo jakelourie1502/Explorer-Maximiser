@@ -36,11 +36,6 @@ class Dynamic(torch.nn.Module):
                                                                     # padding_mode='replicate'
                                                                     )
         self.bn1 = torch.nn.BatchNorm2d(self.state_channels)
-        # self.conv2 = torch.nn.Conv2d(in_channels = self.state_channels, out_channels = self.state_channels, 
-        #                                                             kernel_size= 1,
-        #                                                             stride = 1,
-        #                                                             padding = 0)
-        # self.bn2 = torch.nn.BatchNorm2d(self.state_channels)
         self.resBlocks = torch.nn.ModuleList([resBlock(x, self.device, self.cfg) for x in self.res_blocks])
         #reward
         self.conv1x1_reward = torch.nn.Conv2d(in_channels=self.state_channels, out_channels=self.cfg.dynamic.reward_conv_channels, kernel_size=1,padding=0, stride=1)
@@ -72,20 +67,11 @@ class Dynamic(torch.nn.Module):
         action_plane = torch.zeros(state.shape[0],1, state.shape[2], state.shape[3]).to(self.device)
         action_plane += action
         
-        # action_one_hot = TF.one_hot(torch.tensor(action).to(torch.int64),self.actions_size).reshape(-1,self.action_size, 1, 1).to(self.device)
-        # print(torch.sum(action_one_hot))
-        # action_plane += action_one_hot
-        # action_plane = action_plane.to(self.device)
-        
         x = torch.cat((state,action_plane),dim=1)
-        ### so now we have a [m,12,4,4]
-        x  = self.conv1(x)
+        x = self.conv1(x)
         x = self.bn1(x)
+        x += state
         x = self.relu(x)
-        # x = self.conv2(x)
-        # x = self.bn2(x)
-        # x = self.relu(x)
-        
         for block in self.resBlocks:
           x = block(x)
         state = x

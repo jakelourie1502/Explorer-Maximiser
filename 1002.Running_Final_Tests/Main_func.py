@@ -21,7 +21,7 @@ from config import  Config, child
 from training_flags import Training_flags
 import torch 
 torch.set_printoptions(sci_mode=False, precision=4)   
-from utils import global_expl, get_lr, Scores
+from utils import global_expl, Scores
 np.set_printoptions(suppress=True)
 import argparse
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
@@ -75,9 +75,7 @@ class Main:
             self.ExpMaxPlay = torch.load(f'saved_models/jake_zero{test_run}')
         self.ExpMaxTrain.train()
         self.ExpMaxPlay.eval()
-        self.optimizer = self.cfg.training.optimizer([{'params': [y for x,y in self.ExpMaxTrain.named_parameters() if 'close_state' not in x]},
-                                                    #   {'params': [y for x,y in self.ExpMaxTrain.named_parameters() if 'close_state' in x],'lr':0.01}], lr=self.cfg.training.lr, momentum = self.cfg.training.momentum, alpha = self.cfg.training.rho,weight_decay = self.cfg.training.l2)
-                                                    {'params': [y for x,y in self.ExpMaxTrain.named_parameters() if 'close_state_projection_obs' in x],'weight_decay':0.001}], lr=self.cfg.training.lr, momentum = self.cfg.training.momentum, weight_decay = self.cfg.training.l2)
+        self.optimizer = self.cfg.training.optimizer(self.ExpMaxTrain.parameters(), lr=self.cfg.training.lr, momentum = self.cfg.training.momentum, weight_decay = self.cfg.training.l2 )
         self.compute_batch_loss = compute_BL
         
 
@@ -144,18 +142,6 @@ class Main:
                 with torch.no_grad():
                     ep = Episode(self.ExpMaxPlay,self.cfg, scores = self.scores,ep_counter=self.ep_counter, epoch=self.frame_count,rdn_obj = self.rdn_obj, test_mode=False,q_tracker =self.q_tracker,current_best_score = self.curr_best_score)
                     metrics, rew,ep_explr_log, first_move_Qe = ep.play_episode()
-                    if len(metrics['ep_id']) > 19:
-                        self.thresholdhitter += 1
-                        self.replay_buffer.episodes[metrics['ep_id'][0]] = {"length":  len(metrics['ep_id']),
-                                                                        "obs": metrics['obs'],
-                                                                        "actions": metrics['action'],
-                                                                        'stnum': metrics['stnum']
-                        }
-                        if np.random.uniform(0,100) < 1: 
-                            print('in main func line 156: ', len(list(self.replay_buffer.episodes.keys())))
-                    else:
-                        self.threshold_misser+=1
-                    if np.random.uniform(0,50) < 1: print(self.thresholdhitter, self.threshold_misser)
                     self.rdn_obj.new_ep_expV_deki.append(first_move_Qe)
                     self.replay_buffer.add_ep_log(metrics)
                     if self.cfg.analysis.log_states: 
@@ -186,10 +172,6 @@ class Main:
             evaluation_thread = Thread(target = self.run_evaluation, args=())
             evaluation_thread.start()
         
-        if self.cfg.training.resampling:
-            for _ in range(4):
-                resample_thread = Thread(target = resample_trajectories, args = (self, ))
-                resample_thread.start()
     
     def save_and_load_model(self):
         self.ExpMaxPlay.load_state_dict(self.ExpMaxTrain.state_dict())

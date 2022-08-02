@@ -24,7 +24,7 @@ class gridWorld(Env):
         env_size = [self.side_length[0], self.side_length[1]]
         self.env_size = env_size
         self.observable_size = self.env_size
-        self.n_actions = 5
+        self.n_actions = self.cfg.actions_size
 
 
         ### GYM FEATURES

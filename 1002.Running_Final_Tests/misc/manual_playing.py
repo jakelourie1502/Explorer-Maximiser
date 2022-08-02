@@ -24,8 +24,8 @@ from preMadeEnvironments.RaceWorld import small
 from preMadeEnvironments.Key_Envs import key1
 from game_play.frozen_lakeGym_Image import gridWorld as Env
 from utils import global_expl, Scores
-from game_play.frozen_lake_KEY import gridWorld as Env
-from game_play.Car_Driving_Env import RaceWorld as Env
+# from game_play.frozen_lake_KEY import gridWorld as Env
+# from game_play.Car_Driving_Env import RaceWorld as Env
 from game_play.frozen_lakeGym_Image import gridWorld as Env
 from game_play.play_episode import Episode
 from game_play.mcts import MCTS, Node
@@ -52,7 +52,7 @@ class Ep_counter:
         self.ids = []
 
 ep_c = Ep_counter()
-ExpMax = torch.load('../saved_models/jake_zerobatchNormnelu',map_location=torch.device('cpu'))
+ExpMax = torch.load('../saved_models/jake_zeroEPICL_FLKEY_1',map_location=torch.device('cpu'))
 for n, p in ExpMax.named_parameters():
     if 'close_state' in n:
         print(n)
@@ -103,11 +103,12 @@ for _ in range(5):
             
             o = vector2d_to_tensor_for_model(np.concatenate(obs_deque,0)) #need to double unsqueeze here to create fictional batch and channel dims
             state = ExpMax.representation(o.float())
-            ep.state_vectors.append((ExpMax.close_state_projection_obs(torch.tensor(obs).unsqueeze(0))))
+            ep.state_vectors.append((ExpMax.close_state_projection(state)))
             print("size of obs magnitude: ", torch.sum(ExpMax.close_state_projection_obs(torch.tensor(obs).unsqueeze(0))))
             print("length of vec = :", len(ep.state_vectors))
             root_node = Node('null', Q = Q, Qe = Qe)
             root_node.state = state
+            root_node.SVs = deque([], 10)
             policy, action, Q,  v, Qe, imm_nov, expected_reward = mcts.one_turn(root_node) ## V AND rn_v is used for bootstrapping
             print(policy)
             

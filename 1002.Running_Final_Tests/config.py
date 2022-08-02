@@ -22,10 +22,12 @@ ONE_HEAD_ABLATION = 2
 MUZEROSS = 4
 VANILLA = 5
 EPISODIC = 6
-MUZERO_WITH_RND = 7
+EPISODIC_CL = 7
+MUZERO_WITH_RND = 8
 
 class Config:
     def __init__(self,env_code=False,algo_mode=False):
+        self.append_mcts_svs=False
         self.mcts = child()
         self.model = child()
         self.repr = child()
@@ -35,54 +37,18 @@ class Config:
         self.mcts.expl_noise_explorer = child()
         self.siam = child()
         self.training = child()
-        if env_code == False:
-            ##### ENVIRONMENT
-            self.env = RaceWorld
-            self.same_env_each_time=True
-            self.channels = 3
-            self.env_size = [8,60]
-            self.observable_size = [8,10]
-            self.game_modes = 1
-            if self.same_env_each_time: 
-                #### TO BE EDITED FOR EACH MAP.
-                self.env_map = large()
-                self.max_steps = 200
-            self.actions_size = 7
-            self.optimal_score = 0.86
-        else:
-            self.preset_environment(env_code)
+        self.preset_environment(env_code)
 
         #### END OF VERY ENVIRONMENT SPECIFIC STUFF.
-        
-        
-        self.running_reward_in_obs = False
         if self.store_prev_actions:
-            if self.running_reward_in_obs:
-                self.deque_length = self.timesteps_in_obs * 3 - 2
-            else:
-                self.deque_length = self.timesteps_in_obs * 2 - 1
+            self.deque_length = self.timesteps_in_obs * 2 - 1
         else:
             self.deque_length = self.timesteps_in_obs
         
         
         ############ MAIN CHANGEABLE SECTION
-        ## SET PRESEET
-        if algo_mode == False:
-            #SET MANUALLY
-            self.exploration_type = 'none' #none / instant / full
-            self.rdn_beta = [0,.0,1]
-            self.explorer_percentage = 0.
-            self.reward_exploration = True
-            self.VK= False
-            self.use_siam = True
-            self.use_two_heads = False
-            self.follow_better_policy = 0.5 #can be 0 to inactivate it.
-        else:
-            self.preset_config(algo_mode)
-        
-        # For all MLPs 
-        
-        
+        ## SET PRESET 
+        self.preset_config(algo_mode)
         
         self.model.res_block_kernel_size = 3
         self.norm_state_vecs = False
@@ -90,12 +56,10 @@ class Config:
         self.repr.conv1 = {'channels': self.model.state_channels//2,'kernel_size' : 3, 'stride':2, 'padding':1}
         self.repr.conv2 = {'channels': self.model.state_channels, 'kernel_size': 3, 'stride': 2, 'padding': 1}
         
-        
-        
 
         # Dynamic
         self.dynamic.conv1 = {'kernel_size': 3, 'stride': 1, 'padding': 1}
-        self.dynamic.res_blocks = [self.model.state_channels,self.model.state_channels] 
+        self.dynamic.res_blocks = [self.model.state_channels] 
         self.dynamic.reward_conv_channels = self.model.state_channels//2
         self.dynamic.reward_hidden_dim = 128
         self.dynamic.terminal_conv_channels = self.model.state_channels//2
@@ -164,11 +128,10 @@ class Config:
         self.eval_count = 20
 
         self.detach_expV_calc = True
-        self.use_new_episode_expV = True
+        self.use_new_episode_expV = False
         self.start_training_expV_min = 10000
         self.start_training_expV_max = 20000 #can change.
         self.start_training_expV_siam_override = 0.8
-
         self.value_only = False #OBSOLETE, DOESN'T WORK
         ### training
         
@@ -177,7 +140,7 @@ class Config:
         self.training.all_time_buffer_size = 200 * 1000
         self.training.batch_size = 128
         self.training.play_workers = 2
-        self.training.min_workers = 2
+        self.training.min_workers = 1
         self.training.max_workers = 6
         self.training.lr = 0.001
         self.training.lr_warmup = 1000+self.start_frame_count
@@ -196,11 +159,7 @@ class Config:
         self.training.coef.expV =0.5
         self.training.train_start_batch_multiple = 2
         self.training.prioritised_replay = True
-        self.training.resampling = False
-        self.training.resampling_use_max = False
-        self.training.resampling_assess_best_child = False
         
-        self.training.rs_start = 1 * 1000
         self.training.ep_to_batch_ratio = [15,16]
         self.training.main_to_rdn_ratio = 2
         self.training.train_to_RS_ratio = 4
@@ -247,16 +206,17 @@ class Config:
             self.reward_exploration = False
             self.train_dones = True
         
-        if self.PRESET_CONFIG == EPISODIC:
+        if self.PRESET_CONFIG in [EPISODIC, EPISODIC_CL]:
             self.VK= True
             self.use_two_heads = True
             self.follow_better_policy = 0.5 #can be 0 to inactivate it.
             self.use_siam = True
             self.exploration_type = 'episodic' #none / instant / full / episodic
-            self.rdn_beta = [1/3,1,3]
+            self.rdn_beta = [1/3,2,6]
             self.explorer_percentage = 0.8
             self.reward_exploration = False
             self.train_dones = True
+            self.contrast_vector = True if self.PRESET_CONFIG == EPISODIC_CL else False
         
         if self.PRESET_CONFIG == MUZERO_WITH_RND:
             self.VK_ceiling = False
@@ -282,6 +242,14 @@ class Config:
             self.reward_exploration = False
             self.train_dones = False
     
+        if self.PRESET_CONFIG in [MUZERO_WITH_RND, ONE_HEAD_ABLATION, FULL_ALGO]:
+            self.training.replay_buffer_size = 50 * 1000
+            self.training.replay_buffer_size_exploration = 200 * 1000
+            self.training.all_time_buffer_size = 200 * 1000
+        else:
+            self.training.replay_buffer_size = 50 * 1000
+            self.training.replay_buffer_size_exploration = 55 * 1000
+            self.training.all_time_buffer_size = 55 * 1000
     def preset_environment(self, env_code):
         FL_4_EASY = -2
         FL_5_EASY = -1
@@ -297,20 +265,13 @@ class Config:
         CAR_MEDIUM = 10
         CAR_HARD = 11
         MONTEZUMA = 12
-        # if env_code > -2:
+        
         self.rgb_im = True
         self.channels = 3
         self.model.state_channels = 64
         self.state_size = [6, 6]
         self.timesteps_in_obs = 2
         self.store_prev_actions = True
-        # else:
-        #     self.model.state_channels = 32
-        #     self.rgb_im = False
-        #     self.channels = 1
-        #     self.timesteps_in_obs = 1
-        #     self.store_prev_actions = False
-        
         
         if env_code == FL_4_EASY:
             ##### ENVIRONMENT
@@ -323,7 +284,7 @@ class Config:
                 #### TO BE EDITED FOR EACH MAP.
                 self.env_map = easy_version4x4()
                 self.max_steps = 30
-            self.actions_size = 4
+            self.actions_size = 5
             self.optimal_score = 1
             self.total_frames = 255 * 1000
             self.exp_gamma = 0.95
@@ -453,7 +414,7 @@ class Config:
                 self.max_steps = 100
             self.actions_size = 5
             self.optimal_score = 1
-            self.total_frames = 255 * 1000
+            self.total_frames = 205 * 1000
             self.exp_gamma = 0.95
             self.mcts.sims = {-1:6,6000: 25}
             self.atari_env = False
@@ -486,7 +447,7 @@ class Config:
             if self.same_env_each_time:
                 #### TO BE EDITED FOR EACH MAP.
                 self.env_map = key1()
-                self.max_steps = 100
+                self.max_steps = 120
             self.actions_size = 5
             self.optimal_score = 1
             self.total_frames = 305 * 1000
@@ -583,6 +544,8 @@ class Config:
             self.mcts.sims = {-1:6,6000: 50}
             self.atari_env = True
 
+        
+
         if self.atari_env:
             self.reward_clipping = True
             self.dynamic.reward_support = [-1,1,3]
@@ -598,7 +561,7 @@ class Config:
             self.reward_clipping = False
             self.dynamic.reward_support = [-1,1,51]
             self.prediction.value_support = [-1,1,51]
-            self.memory_size = 100
+            self.memory_size = 30
             self.image_size = [48,48]
             self.siam.proj_l1 = 256
             self.siam.proj_out = 128

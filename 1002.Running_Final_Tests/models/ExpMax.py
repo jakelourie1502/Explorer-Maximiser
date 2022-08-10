@@ -139,5 +139,5 @@ class ExpMax(torch.nn.Module):
     def contrast_two_state_vecs(self, x, y):
         x = self.state_vecs_proj(x)
         y = self.state_vecs_proj(y)
-        # return torch.nn.CosineSimilarity(dim=1)(x,y).reshape(-1,1) / 0.07
-        return torch.nn.CosineSimilarity(dim=1)(x,y).reshape(-1,1)
+        return torch.nn.CosineSimilarity(dim=1)(x,y).reshape(-1,1) / 0.07
+        

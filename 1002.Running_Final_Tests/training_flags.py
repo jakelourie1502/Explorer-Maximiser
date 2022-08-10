@@ -34,8 +34,8 @@ class Training_flags:
         then we set it if either a) frame count is above expV min and we've hit the overload or b) frame count is above expV max
         """
         if (self.algo.frame_count < self.expV_training_start_flag) and \
-            ((self.algo.frame_count > self.algo.cfg.start_training_expV_min and  -np.mean(self.algo.siam_log) > self.algo.cfg.start_training_expV_siam_override) or\
-            self.algo.frame_count > self.algo.cfg.start_training_expV_max):
+            ((self.algo.frame_count > self.algo.cfg.start_training_expV_min+self.cfg.start_frame_count and  -np.mean(self.algo.siam_log) > self.algo.cfg.start_training_expV_siam_override) or\
+            self.algo.frame_count > self.algo.cfg.start_training_expV_max+self.cfg.start_frame_count):
         
             self.expV_training_start_flag = self.algo.frame_count
             print("STARTED EXPV TRAINING ON FRAME NO. ", self.algo.frame_count)
@@ -54,7 +54,7 @@ class Training_flags:
     
 
     def set_train(self):
-        min_frames_to_start_training = self.algo.cfg.training.batch_size*self.algo.cfg.training.train_start_batch_multiple
+        min_frames_to_start_training = self.algo.cfg.training.batch_size*self.algo.cfg.training.train_start_batch_multiple + self.cfg.start_frame_count
         frames_trained_to_played_ratio = (self.algo.training_step_counter*self.algo.cfg.training.batch_size) / (self.algo.frame_count+1)
         max_train_to_play_ratio = self.algo.cfg.training.ep_to_batch_ratio[1]
         if self.algo.frame_count > min_frames_to_start_training:

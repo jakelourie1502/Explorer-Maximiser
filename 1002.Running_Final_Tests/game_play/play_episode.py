@@ -195,7 +195,7 @@ class Episode:
                 else:
                     self.rdn_beta = 0.0
                 
-            elif (np.random.uniform(0,1) < self.cfg.explorer_percentage and not self.resampling):
+            elif (np.random.uniform(0,1) < self.cfg.explorer_percentage):
                 self.actor_id = 1 #explorer
                 self.rdn_beta = np.round(np.random.choice(np.linspace(*self.cfg.rdn_beta)),3)
                 self.pick_best = False

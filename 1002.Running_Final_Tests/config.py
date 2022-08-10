@@ -24,6 +24,8 @@ VANILLA = 5
 EPISODIC = 6
 EPISODIC_CL = 7
 MUZERO_WITH_RND = 8
+VK_ABLATION = 9
+VNOV_ABLATION = 12
 
 class Config:
     def __init__(self,env_code=False,algo_mode=False):
@@ -136,8 +138,8 @@ class Config:
         ### training
         
         self.training.replay_buffer_size = 50 * 1000
-        self.training.replay_buffer_size_exploration = 305 * 1000
-        self.training.all_time_buffer_size = 305 * 1000
+        self.training.replay_buffer_size_exploration = 200 * 1000
+        self.training.all_time_buffer_size = 200 * 1000
         self.training.batch_size = 128
         self.training.play_workers = 2
         self.training.min_workers = 1
@@ -157,7 +159,7 @@ class Config:
         self.training.coef.siam = 2
         self.training.coef.rdn = 0.5
         self.training.coef.expV =0.5
-        self.training.train_start_batch_multiple = 2
+        self.training.train_start_batch_multiple = 5
         self.training.prioritised_replay = True
         
         self.training.ep_to_batch_ratio = [15,16]
@@ -166,7 +168,7 @@ class Config:
         self.training.on_policy_expV = False
 
         #assertions
-        assert self.exploration_type in ['none', 'episodic','rdn','both'], 'change exploration type to valid'
+        assert self.exploration_type in ['none', 'episodic','rdn','both', 'vNov_ablation'], 'change exploration type to valid'
         if self.exploration_type == 'none':
             assert self.rdn_beta == [0,0,1] and self.explorer_percentage == 0, 'set rdn_beta to 0 if youre not exploring and explorer percentage to 1'
         assert self.RND_loss in ['cosine','MSE'], 'change RDN loss type'
@@ -206,6 +208,17 @@ class Config:
             self.reward_exploration = False
             self.train_dones = True
         
+        if self.PRESET_CONFIG == VK_ABLATION:
+            self.VK= False
+            self.use_two_heads = True
+            self.follow_better_policy = 0.5 #can be 0 to inactivate it.
+            self.use_siam = True
+            self.exploration_type = 'rdn' #none / instant / full
+            self.rdn_beta = [1/6,4/6,4]
+            self.explorer_percentage = 0.8
+            self.reward_exploration = False
+            self.train_dones = True
+
         if self.PRESET_CONFIG in [EPISODIC, EPISODIC_CL]:
             self.VK= True
             self.use_two_heads = True
@@ -241,8 +254,19 @@ class Config:
             self.follow_better_policy = 0.
             self.reward_exploration = False
             self.train_dones = False
-    
-        if self.PRESET_CONFIG in [MUZERO_WITH_RND, ONE_HEAD_ABLATION, FULL_ALGO]:
+
+        if self.PRESET_CONFIG == VNOV_ABLATION:
+            self.VK= True
+            self.use_two_heads = True
+            self.follow_better_policy = 0.5 #can be 0 to inactivate it.
+            self.use_siam = True
+            self.exploration_type = 'vNov_ablation' #none / instant / full
+            self.rdn_beta = [1/4,1,4]
+            self.explorer_percentage = 0.8
+            self.reward_exploration = False
+            self.train_dones = True
+            
+        if self.PRESET_CONFIG in [MUZERO_WITH_RND, ONE_HEAD_ABLATION, FULL_ALGO, VK_ABLATION, VNOV_ABLATION]:
             self.training.replay_buffer_size = 50 * 1000
             self.training.replay_buffer_size_exploration = 200 * 1000
             self.training.all_time_buffer_size = 200 * 1000
@@ -291,6 +315,7 @@ class Config:
             self.mcts.sims = {-1:6,6000: 25}
             self.atari_env = False
             self.state_size = [4,4]
+            self.memory_size = 40
 
         if env_code == FL_5_EASY:
             ##### ENVIRONMENT
@@ -310,6 +335,7 @@ class Config:
             self.mcts.sims = {-1:6,6000: 25}
             self.atari_env = False
             self.state_size = [6,6]
+            self.memory_size = 40
 
         if env_code == FL_6_EASY:
             ##### ENVIRONMENT
@@ -328,6 +354,7 @@ class Config:
             self.exp_gamma = 0.95
             self.mcts.sims = {-1:6,6000: 25}
             self.atari_env = False
+            self.memory_size = 40
 
         if env_code == FL_6_EASY:
             ##### ENVIRONMENT
@@ -346,6 +373,7 @@ class Config:
             self.exp_gamma = 0.95
             self.mcts.sims = {-1:6,6000: 25}
             self.atari_env = False
+            self.memory_size = 40
             
         if env_code == FL_6_MEDIUM:
             ##### ENVIRONMENT
@@ -364,6 +392,7 @@ class Config:
             self.exp_gamma = 0.95
             self.mcts.sims = {-1:6,6000: 25}
             self.atari_env = False
+            self.memory_size = 40
 
         if env_code == FL_6_HARD:
             ##### ENVIRONMENT
@@ -382,6 +411,7 @@ class Config:
             self.exp_gamma = 0.95
             self.mcts.sims = {-1:6,6000: 25}
             self.atari_env = False
+            self.memory_size = 40
         
         if env_code == FL_8_EASY:
             ##### ENVIRONMENT
@@ -400,6 +430,7 @@ class Config:
             self.exp_gamma = 0.95
             self.mcts.sims = {-1:6,6000: 25}
             self.atari_env = False
+            self.memory_size = 60
         
         if env_code == FL_8_MEDIUM:
             ##### ENVIRONMENT
@@ -418,6 +449,7 @@ class Config:
             self.exp_gamma = 0.95
             self.mcts.sims = {-1:6,6000: 25}
             self.atari_env = False
+            self.memory_size = 60
 
         if env_code == FL_8_HARD:
             ##### ENVIRONMENT
@@ -436,6 +468,7 @@ class Config:
             self.exp_gamma = 0.95
             self.mcts.sims = {-1:6,6000: 25}
             self.atari_env = False
+            self.memory_size = 60
 
         if env_code == FL_KEY:
             ##### ENVIRONMENT
@@ -450,10 +483,11 @@ class Config:
                 self.max_steps = 120
             self.actions_size = 5
             self.optimal_score = 1
-            self.total_frames = 305 * 1000
+            self.total_frames = 255 * 1000
             self.exp_gamma = 0.95
-            self.mcts.sims = {-1:6,6000: 50}
+            self.mcts.sims = {-1:6,6000: 40}
             self.atari_env = False
+            self.memory_size = 30
         
         if env_code == FL_ERRG:
             ##### ENVIRONMENT
@@ -472,6 +506,7 @@ class Config:
             self.exp_gamma = 0.95
             self.mcts.sims = {-1:6,6000: 25}
             self.atari_env = False
+            self.memory_size = 60
 
         if env_code == CAR_SMALL:
             ##### ENVIRONMENT
@@ -490,6 +525,7 @@ class Config:
             self.exp_gamma = 0.95
             self.mcts.sims = {-1:6,6000: 50}
             self.atari_env = False
+            self.memory_size = 30
 
         if env_code == CAR_MEDIUM:
             ##### ENVIRONMENT
@@ -508,6 +544,7 @@ class Config:
             self.exp_gamma = 0.975
             self.mcts.sims = {-1:6,6000: 50}
             self.atari_env = False
+            self.memory_size = 30
 
         if env_code == CAR_HARD:
             ##### ENVIRONMENT
@@ -526,6 +563,7 @@ class Config:
             self.exp_gamma = 0.975 
             self.mcts.sims = {-1:6,6000: 50}
             self.atari_env = False
+            self.memory_size = 30
 
         if env_code == MONTEZUMA:
             self.env = "MontezumaRevengeNoFrameskip-v4"
@@ -543,6 +581,7 @@ class Config:
             self.exp_gamma = 0.975 
             self.mcts.sims = {-1:6,6000: 50}
             self.atari_env = True
+            self.memory_size = 150
 
         
 
@@ -561,7 +600,7 @@ class Config:
             self.reward_clipping = False
             self.dynamic.reward_support = [-1,1,51]
             self.prediction.value_support = [-1,1,51]
-            self.memory_size = 30
+            
             self.image_size = [48,48]
             self.siam.proj_l1 = 256
             self.siam.proj_out = 128

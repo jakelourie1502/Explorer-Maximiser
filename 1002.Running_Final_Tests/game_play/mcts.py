@@ -106,8 +106,10 @@ class MCTS:
             print("v: ", [x.v for x in self.root_node.children])
             print("done: ", [x.d for x in self.root_node.children])
             print("Qe: ", [x.Qe for x in self.root_node.children])
-            print("Total Q for non episodic:", [(self.mmtotal.normalize(self.mm.normalize(x.Q) + self.ep.rdn_beta*self.ep.actor_id*x.Qe)) for x in self.root_node.children])
-            print("Total Q for episodic: ", [self.ep.rdn_beta * self.mm_epi.normalize(x.Qe)  + x.Q for x in self.root_node.children])
+            # print("Total Q for non episodic:", [(self.mmtotal.normalize(self.mm.normalize(x.Q) + self.ep.rdn_beta*self.ep.actor_id*x.Qe)) for x in self.root_node.children])
+            # print("Total Q for episodic: ", [self.ep.rdn_beta * self.mm_epi.normalize(x.Qe)  + x.Q for x in self.root_node.children])
+            Qes = np.array([self.mm_epi.normalize(x.Qe) for x in self.root_node.children]).reshape(-1,1) #5x 1
+            print("Total Qe: ", (Qes-np.min(Qes)+0.2)/(np.max(Qes)-np.min(Qes)+0.2))
             print("exp_r: ", [float(x.exp_r) for x in self.root_node.children])
             print("expTOT: ", [float(x.expTOT) for x in self.root_node.children])
             print("policy: ", [float(x.p) for x in self.root_node.children])
@@ -138,7 +140,7 @@ class MCTS:
                 node.r = node.r * (1-node.parent.d)
             
             ## Get r and exp_r
-            if self.cfg.exploration_type == 'rdn':
+            if self.cfg.exploration_type in ['rdn','vNov_ablation']:
                 rdn_random = self.ep.model.RDN(state)
                 rdn_real = self.ep.model.RDN_prediction(state)
                 node.exp_r = self.ep.rdn_obj.evaluate(rdn_random, rdn_real, k = node.level).detach().numpy()
@@ -197,7 +199,7 @@ class MCTS:
             else:
                 node.expTOT = node.expV
                 
-        elif self.cfg.exploration_type == 'rdn': 
+        elif self.cfg.exploration_type in ['rdn', 'vNov_ablation']: 
             node.expTOT = node.exp_r
         elif self.cfg.exploration_type == 'episodic':
             node.expTOT = node.ep_nov
@@ -274,13 +276,14 @@ class MCTS:
             else:
                 Qs = self.mm.normalize(Qs) 
             
-            if self.cfg.exploration_type == 'rdn':
+            if self.cfg.exploration_type in ['rdn', 'vNov_ablation']:
                 total_Qs = self.mmtotal.normalize(Qs + self.ep.rdn_beta * Qes)
             
             if self.cfg.exploration_type == 'episodic':
                 
                 total_Qs = (self.ep.rdn_beta * self.mm_epi.normalize(Qes)  + Qs)
-            
+                # total_Qs = (self.ep.rdn_beta * (Qes-np.min(Qes)+0.1)/(np.max(Qes)-np.min(Qes)+0.1)  + Qs)
+        
         if self.cfg.mcts.use_policy:
             policy_and_novelty_coef = Qps * np.sqrt(node.N) / (self.cfg.mcts.ucb_denom_k+Qns**self.cfg.mcts.exponent_node_n) #5x1
         else:

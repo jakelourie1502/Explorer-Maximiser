@@ -50,7 +50,7 @@ class Replay_Buffer():
         self.actor_id.extend(metrics['actor_id'])
 
     def purge(self):
-        no_of_examples = len(self.exp_r)
+        no_of_examples = len(self.actor_id)
         if no_of_examples > self.size:
             reduc = no_of_examples - self.size
             self.ep_id = self.ep_id[reduc:]
@@ -72,7 +72,7 @@ class Replay_Buffer():
             batch_size = self.cfg.training.batch_size
         
         batch_n = batch_size
-        min_len = min(len(self.ep_id),len(self.actor_id)) 
+        min_len = min(len(self.ep_id),len(self.actor_id)) - 200
         if not resampling and not exploration_sampling: #this is if the length of the replay buffer varies for resampling
             start = max(0, min_len-self.cfg.training.replay_buffer_size)
         elif exploration_sampling:

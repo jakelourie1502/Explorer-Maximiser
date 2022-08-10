@@ -35,7 +35,7 @@ test_run=str(args.name)
 cfg_env = args.env
 cfg_algo = args.algo
 
-sys.stdout = open(f"unit_tests/output_{test_run}.txt","w")
+sys.stdout = open(f"unit_tests/output_{test_run}.txt","a")
 
 class Ep_counter:
     #this is to give unique ids to each episode#
@@ -59,8 +59,8 @@ class Main:
         self.q_tracker.non_end_states = 0
         self.start_time = time.time()
         self.curr_best_score = 0
-        with open(f'TestResults/results_{test_run}.txt', 'w') as f:
-            print("EVALUATIONS AND MAIN RESULTS", file=f)
+        # with open(f'TestResults/results_{test_run}.txt', 'w') as f:
+        #     print("EVALUATIONS AND MAIN RESULTS", file=f)
         self.reached_optimal_score = False
 
     def _initialise_models(self):
@@ -91,7 +91,7 @@ class Main:
         self.pick_best = False
         self.tn = time.time()
         self.frame_count = self.cfg.start_frame_count
-        self.training_step_counter = self.frame_count // 10
+        self.training_step_counter = self.frame_count * 0.117
         self.resampling_step_counter = self.training_step_counter // self.cfg.training.train_to_RS_ratio
         self.fired_actor_timestamp = time.time()
         self.evaluations = self.frame_count // 10000
@@ -214,7 +214,7 @@ class Main:
                     if self.cfg.env == 'MontezumaRevengeNoFrameskip-v4':
                         print("maxi_rooms: ", self.scores.scores['maxi'].ma, file=f)
                         print("explorer rooms: ", {str(b): self.scores.scores[str(b)].rooms_ma for b in np.round(np.linspace(*self.cfg.rdn_beta),3)}, file=f)
-                    print("rdn probs: ", self.scores.probs)
+                    print("rdn probs: ", self.scores.probs,file=f)
                     print(f'Episodes: {self.e}, frames: {self.frame_count}, time: {time.time()-self.tn}', file=f)
                     print("training steps: ", self.training_step_counter, file=f)
                     print("retraining steps: ", self.resampling_step_counter, file=f)

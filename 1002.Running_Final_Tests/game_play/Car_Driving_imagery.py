@@ -8,7 +8,7 @@ import os
 class Car_Image:
     def __init__(self, cfg):
         self.cfg = cfg
-        here = os.getcwd()
+        here = os.getcwd() + '/game_play'
         road_tile_file = f"{here}/images/road_tile.jpg"
         self.road_tile = np.array((Image.open(road_tile_file)).resize((24,24), resample=Image.BILINEAR))[:,:,:3]
 

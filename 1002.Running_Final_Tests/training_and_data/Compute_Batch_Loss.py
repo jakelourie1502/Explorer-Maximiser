@@ -66,17 +66,16 @@ def compute_BL(algo):
 
                         if algo.cfg.contrast_vector and algo.training_step_counter % 2 == 0 and k!=0:
                             # Contrast state vector with previous period state vector and random state vector
-                            # projected_obs_for_contrast = algo.ExpMaxTrain.close_state_projection(algo.ExpMaxTrain.representation(o))
                             shuffled_idx = torch.randperm(algo.cfg.training.batch_size) #create random state vectors for negative contrast
                             shuffled_obs_projs = last_state_proj[shuffled_idx]
                             pos_sims = algo.ExpMaxTrain.contrast_two_state_vecs(projected_state, last_state_proj) #return simTRUE / 0.07
                             neg_sims = algo.ExpMaxTrain.contrast_two_state_vecs(projected_state, shuffled_obs_projs) #return sim1FALSE / 0.07
-                            # catted_sims = torch.exp(torch.cat((pos_sims,neg_sims),1)) 
-                            # catted_sims = catted_sims / torch.sum(catted_sims,1,keepdim=True) #SOFTMAX
-                            # loss_sim_vecs = -torch.mean(torch.log(catted_sims[:,0]+1e-4)+torch.log(1-catted_sims[:,1]+1e-4))
-                            loss_sim_vecs = .5*torch.mean((1-pos_sims)**2)
-                            x = torch.where(neg_sims.float() > torch.tensor(0.), neg_sims.float()**2, torch.tensor(0.)).float()
-                            loss_sim_vecs +=  .5*torch.mean(x)
+                            catted_sims = torch.exp(torch.cat((pos_sims,neg_sims),1)) 
+                            catted_sims = catted_sims / torch.sum(catted_sims,1,keepdim=True) #SOFTMAX
+                            loss_sim_vecs = -torch.mean(torch.log(catted_sims[:,0]+1e-4)) #+torch.log(1-catted_sims[:,1]+1e-4))
+                            # loss_sim_vecs = .5*torch.mean((1-pos_sims)**2)
+                            # x = torch.where(neg_sims.float() > torch.tensor(0.), neg_sims.float()**2, torch.tensor(0.)).float()
+                            # loss_sim_vecs +=  .5*torch.mean(x)
                             # loss_sim_vecs = 0.5 * torch.mean(neg_sims - pos_sims)
                             loss+= loss_sim_vecs
 
@@ -175,7 +174,7 @@ def compute_BL(algo):
                 
 
                 ### RDN SECTION
-                if algo.training_step_counter % algo.cfg.training.main_to_rdn_ratio == 0 and algo.cfg.exploration_type == 'rdn':
+                if algo.training_step_counter % algo.cfg.training.main_to_rdn_ratio == 0 and algo.cfg.exploration_type in ['rdn','vNov_ablation']:
                 
                     if np.random.uniform(0,100) < 1: print("first move QE: ",algo.rdn_obj.new_ep_mu)
                     
@@ -233,7 +232,7 @@ def compute_BL(algo):
                     ###expV finishing section
                     
                         
-                    if algo.training_flags.expV_train_flag: #so this happens after 5,000 frames, before that we just give a small amount. we also then immediately start bootstrapping
+                    if algo.training_flags.expV_train_flag and algo.cfg.exploration_type != 'vNov_ablation': #so this happens after 5,000 frames, before that we just give a small amount. we also then immediately start bootstrapping
                         true_expV_values = torch.zeros((algo.cfg.training.batch_size,algo.K))
                         true_expV_values += expR_capturer
                         for k in range(1,algo.K):
